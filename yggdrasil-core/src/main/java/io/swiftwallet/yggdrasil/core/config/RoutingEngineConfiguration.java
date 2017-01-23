@@ -14,6 +14,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.annotation.PreDestroy;
+
 
 /**
  * Created by gibugeorge on 23/01/2017.
@@ -26,9 +28,11 @@ public class RoutingEngineConfiguration {
     @Autowired
     private RoutingEngineProperties routingEngineProperties;
 
+    private CamelContext camelContext;
+
     @Bean
     public CamelContext camelContext(final ApplicationContext applicationContext) throws Exception {
-        final CamelContext camelContext = new SpringCamelContext(applicationContext);
+        camelContext = new SpringCamelContext(applicationContext);
         if (!routingEngineProperties.isJmxEnabled()) {
             camelContext.disableJMX();
         }
@@ -62,5 +66,10 @@ public class RoutingEngineConfiguration {
     @Bean
     public PropertiesParser propertiesParser() {
         return new SpringPropertiesParser();
+    }
+
+    @PreDestroy
+    public void stop() throws Exception {
+        camelContext.stop();
     }
 }
