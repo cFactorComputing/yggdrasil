@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.swiftwallet</groupId>
@@ -17,27 +18,28 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <odin.version>1.0</odin.version>
+        <yggdrasil-odin.version>1.0</yggdrasil-odin.version>
+        <yggdrasil-camel.version>2.18.1</yggdrasil-camel.version>
     </properties>
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>io.swiftwallet.odin</groupId>
-                <artifactId>odin-main</artifactId>
-                <version>${odin.version}</version>
+                <artifactId>odin-core</artifactId>
+                <version>${yggdrasil-odin.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.swiftwallet.odin</groupId>
-                <artifactId>odin-core</artifactId>
-                <version>${odin.version}</version>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-spring</artifactId>
+                <version>${yggdrasil-camel.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
     <modules>
         <module>yggdrasil-main</module>
-    <module>yggdrasil-core</module>
-    <module>yggdrasil-configuration</module>
-  </modules>
+        <module>yggdrasil-core</module>
+        <module>yggdrasil-configuration</module>
+    </modules>
 
 </project>

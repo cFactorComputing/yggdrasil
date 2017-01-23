@@ -21,6 +21,11 @@
             <groupId>io.swiftwallet.odin</groupId>
             <artifactId>odin-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.swiftwallet.yggdrasil</groupId>
+            <artifactId>yggdrasil-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>yggdrasil</finalName>
@@ -40,7 +45,7 @@
                     <addResources>false</addResources>
                     <jvmArguments>
                         -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5008
-                        -Dodin.zookeeper.connectString=localhost:2181
+                        -Dodin.zookeeper.connectString=localhost:2181 -Dmicro-service.id=yggdrasil-node1 -Dmicro-service.name=yggdrasil
                     </jvmArguments>
                 </configuration>
             </plugin>
