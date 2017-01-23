@@ -1,0 +1,1 @@
+Yggdrasil (/ˈɪɡdrəsɪl/ or /ˈɪɡdrəzɪl/; from Old Norse Yggdrasill, pronounced [ˈyɡːˌdrasilː]) is an immense mythical tree that connects the nine worlds in Norse cosmology.
