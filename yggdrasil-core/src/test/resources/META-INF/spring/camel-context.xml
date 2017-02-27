@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://camel.apache.org/schema/spring"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+    <camelContext id="io.swiftwallet.yggdrasil.core.test"/>
+    <routeContext id="io.swiftwallet.yggdrasil.test">
+        <route>
+            <from uri="direct://testwithoutid"/>
+            <to uri="mock://test"/>
+        </route>
+        <route id="io.swiftwallet.yggdrasil.test.route">
+            <from uri="direct://testroutewithid"/>
+            <to uri="mock://test"/>
+        </route>
+        <route id="io.swiftwallet.yggdrasil.test.route">
+            <from uri="direct://testroutewithduplicateid"/>
+            <to uri="mock://test"/>
+        </route>
+    </routeContext>
+    <beans:bean id="routeDefintionsCollector" class="io.swiftwallet.yggdrasil.core.RouteDefinitionsCollector"/>
+    <beans:bean id="javaDslRoute" class="io.swiftwallet.yggdrasil.core.RouteDefinitionsCollectorTest.JavaDslRoutes"/>
+</beans:beans>
