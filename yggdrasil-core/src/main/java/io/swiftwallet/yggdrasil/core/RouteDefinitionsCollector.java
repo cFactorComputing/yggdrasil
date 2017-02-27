@@ -48,6 +48,7 @@ public class RouteDefinitionsCollector {
         routeContexts.forEach((routeContextName, routecontext) -> {
             if (StringUtils.isEmpty(routeContextName)) {
                 logInfo("Skipping the route context as id is null");
+                return;
             } else {
                 final String routeContextId = routeContextName.replace("&", "");
                 logInfo("Getting routes from route context:: {}", routeContextId);
@@ -63,6 +64,7 @@ public class RouteDefinitionsCollector {
             final String routeDefinitionId = routeDefinition.getId();
             if (StringUtils.isEmpty(routeDefinitionId)) {
                 logInfo("Rejecting route as routedefinition id is null");
+                return;
             }
             if (isAlreadyDefined(routeDefinition)) {
                 logInfo("Route {} is already added to the camel context", routeDefinitionId);

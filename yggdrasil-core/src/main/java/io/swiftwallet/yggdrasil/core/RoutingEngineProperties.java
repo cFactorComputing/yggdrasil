@@ -8,11 +8,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "routing-engine")
 public class RoutingEngineProperties {
 
-    private boolean jmxEnabled=true;
+    private boolean jmxEnabled = true;
     private boolean streamCachingEnabled;
-    private boolean streamCachingStatisticsEnabled;
     private boolean traceEnabled;
-    private boolean messageHistoryEnabled=true;
+    private boolean messageHistoryEnabled = true;
     private boolean handleFault;
     private boolean autoStartup = true;
     private boolean allowUseOriginalMessage = true;
@@ -31,14 +30,6 @@ public class RoutingEngineProperties {
 
     public void setStreamCachingEnabled(boolean streamCachingEnabled) {
         this.streamCachingEnabled = streamCachingEnabled;
-    }
-
-    public boolean isStreamCachingStatisticsEnabled() {
-        return streamCachingStatisticsEnabled;
-    }
-
-    public void setStreamCachingStatisticsEnabled(boolean streamCachingStatisticsEnabled) {
-        this.streamCachingStatisticsEnabled = streamCachingStatisticsEnabled;
     }
 
     public boolean isTraceEnabled() {
