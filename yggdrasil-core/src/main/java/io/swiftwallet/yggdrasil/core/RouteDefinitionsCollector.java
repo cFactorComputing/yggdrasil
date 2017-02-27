@@ -29,10 +29,6 @@ public class RouteDefinitionsCollector {
     private CamelContext camelContext;
 
 
-    public RouteDefinitionsCollector(final RoutingEngineProperties properties) {
-
-    }
-
     @PostConstruct
     public void collect() {
         addSpringDslRoutes();
