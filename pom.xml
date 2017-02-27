@@ -40,6 +40,7 @@
         <module>yggdrasil-main</module>
         <module>yggdrasil-core</module>
         <module>yggdrasil-configuration</module>
+        <module>yggdrasil-dist</module>
     </modules>
 
 </project>
