@@ -79,7 +79,7 @@ public class RoutingEngineConfiguration {
 
     @Bean
     public RouteDefinitionsCollector routeDefinitionsCollector() {
-        return new RouteDefinitionsCollector(routingEngineProperties);
+        return new RouteDefinitionsCollector();
     }
 
     @Bean
