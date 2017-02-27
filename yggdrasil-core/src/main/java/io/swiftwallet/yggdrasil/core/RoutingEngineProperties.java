@@ -80,4 +80,5 @@ public class RoutingEngineProperties {
     public void setAllowUseOriginalMessage(boolean allowUseOriginalMessage) {
         this.allowUseOriginalMessage = allowUseOriginalMessage;
     }
+
 }

@@ -1,7 +1,9 @@
 package io.swiftwallet.yggdrasil.core.config;
 
+import io.swiftwallet.yggdrasil.core.RouteDefinitionsCollector;
 import io.swiftwallet.yggdrasil.core.RoutingEngineProperties;
 import io.swiftwallet.yggdrasil.core.SpringPropertiesParser;
+import io.swiftwallet.yggdrasil.core.adapters.ReceiveSendRequest;
 import org.apache.camel.CamelContext;
 import org.apache.camel.ConsumerTemplate;
 import org.apache.camel.ProducerTemplate;
@@ -13,6 +15,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 
 import javax.annotation.PreDestroy;
 
@@ -23,6 +26,7 @@ import javax.annotation.PreDestroy;
 
 @Configuration
 @EnableConfigurationProperties(RoutingEngineProperties.class)
+@ImportResource(locations = "classpath*:META-INF/routing-engine/**/*.xml")
 public class RoutingEngineConfiguration {
 
     @Autowired
@@ -71,5 +75,15 @@ public class RoutingEngineConfiguration {
     @PreDestroy
     public void stop() throws Exception {
         camelContext.stop();
+    }
+
+    @Bean
+    public RouteDefinitionsCollector routeDefinitionsCollector() {
+        return new RouteDefinitionsCollector(routingEngineProperties);
+    }
+
+    @Bean
+    public ReceiveSendRequest receiveSendRequest() {
+        return new ReceiveSendRequest();
     }
 }
