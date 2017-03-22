@@ -36,5 +36,9 @@
             <artifactId>spring-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.swiftwallet.commons</groupId>
+            <artifactId>domain</artifactId>
+        </dependency>
     </dependencies>
 </project>

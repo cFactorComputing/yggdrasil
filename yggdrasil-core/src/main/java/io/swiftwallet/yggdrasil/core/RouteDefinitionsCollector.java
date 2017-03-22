@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.core.Ordered;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.Map;
 /**
  * Created by gibugeorge on 23/01/2017.
  */
-public class RouteDefinitionsCollector {
+public class RouteDefinitionsCollector implements Ordered {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RouteDefinitionsCollector.class);
 
@@ -108,5 +109,10 @@ public class RouteDefinitionsCollector {
         if (LOGGER.isInfoEnabled()) {
             LOGGER.info(message, arguments);
         }
+    }
+
+    @Override
+    public int getOrder() {
+        return LOWEST_PRECEDENCE;
     }
 }
