@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swiftwallet.odin.core.bootstrap.cd.RuntimeConfiguration;
 import io.swiftwallet.yggdrasil.core.adapters.domain.ResourceAdapter;
+import org.apache.commons.collections4.MapUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanFactory;
@@ -32,11 +33,13 @@ public class AdapterConfiguration implements BeanFactoryAware {
     public void initializeConfigurations() {
         this.objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         final Map<String, Object> adapterConfig = (Map<String, Object>) runtimeConfiguration.getConfigurations().get("adapters");
-        adapterConfig.forEach((adapterCode, config) -> {
-            final ResourceAdapter resourceAdapter = objectMapper.convertValue(config, ResourceAdapter.class);
-            LOGGER.info("Register configuration for resource adapter {} with application context", adapterCode);
-            beanFactory.registerSingleton(adapterCode, resourceAdapter);
-        });
+        if(MapUtils.isNotEmpty(adapterConfig)) {
+            adapterConfig.forEach((adapterCode, config) -> {
+                final ResourceAdapter resourceAdapter = objectMapper.convertValue(config, ResourceAdapter.class);
+                LOGGER.info("Register configuration for resource adapter {} with application context", adapterCode);
+                beanFactory.registerSingleton(adapterCode, resourceAdapter);
+            });
+        }
 
     }
 
