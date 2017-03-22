@@ -30,19 +30,15 @@ public class SmsUriProcessor implements Processor {
         message.setHeader(Exchange.HTTP_URI, httpUri);
         message.setHeader(Exchange.HTTP_PATH, resourceAdapter.getUri());
         final Map<String, String> params = resourceAdapter.getParams();
-        String query = "?";
+        StringBuilder query = new StringBuilder();
         final Set<String> keySet = params.keySet();
-        for (String key : keySet) {
-            if (query.endsWith("?")) {
-                query += key + "=" + params.get(key);
-            } else {
-                query += "&" + key + "=" + params.get(key);
-            }
+        for (final String key : keySet) {
+            query.append("&").append(key).append("=").append(params.get(key));
         }
         final WalletUserOtp walletUserOtp = message.getBody(WalletUserOtp.class);
-        query = String.format(query, walletUserOtp.getMobileNumber(), "Test" + walletUserOtp.getOtp());
-        message.setHeader(Exchange.HTTP_QUERY, query);
-        message.setHeader(Exchange.HTTP_METHOD,"POST");
+        String finalQuery = String.format(query.toString(), walletUserOtp.getMobileNumber(), "Test" + walletUserOtp.getOtp());
+        message.setHeader(Exchange.HTTP_QUERY, finalQuery);
+        message.setHeader(Exchange.HTTP_METHOD, "POST");
         exchange.getIn().setBody(null);
     }
 }

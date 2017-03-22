@@ -10,7 +10,7 @@
         <route id="io.swiftwallet.yggdrasil.adapters.sms.receive">
             <from uri="direct://sms-gateway"/>
             <process ref="smsUriProcessor"/>
-            <to uri="mock:sample"/>
+            <to uri="https4://127.0.0.1/"/>
         </route>
     </routeContext>
 </beans:beans>
