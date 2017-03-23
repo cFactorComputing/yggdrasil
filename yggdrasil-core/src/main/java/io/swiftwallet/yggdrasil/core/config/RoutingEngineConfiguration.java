@@ -1,10 +1,9 @@
 package io.swiftwallet.yggdrasil.core.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.swiftwallet.yggdrasil.core.RouteDefinitionsCollector;
 import io.swiftwallet.yggdrasil.core.RoutingEngineProperties;
 import io.swiftwallet.yggdrasil.core.SpringPropertiesParser;
-import io.swiftwallet.yggdrasil.core.adapters.ReceiveSendRequest;
+import io.swiftwallet.yggdrasil.core.adapters.GatewayController;
 import io.swiftwallet.yggdrasil.core.adapters.configuration.AdapterConfiguration;
 import org.apache.camel.CamelContext;
 import org.apache.camel.ConsumerTemplate;
@@ -34,8 +33,8 @@ public class RoutingEngineConfiguration {
 
 
     @Bean
-    public ReceiveSendRequest receiveSendRequest() {
-        return new ReceiveSendRequest();
+    public GatewayController receiveSendRequest() {
+        return new GatewayController();
     }
 
     @Bean
