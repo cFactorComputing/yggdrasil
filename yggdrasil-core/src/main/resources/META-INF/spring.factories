@@ -1,2 +1,3 @@
 io.swiftwallet.odin.core.bootstrap.config.annotations.OdinConfiguration=\
-io.swiftwallet.yggdrasil.core.config.RoutingEngineConfiguration
+io.swiftwallet.yggdrasil.core.config.RoutingEngineConfiguration,\
+io.swiftwallet.yggdrasil.core.config.TemplateEngineConfiguration

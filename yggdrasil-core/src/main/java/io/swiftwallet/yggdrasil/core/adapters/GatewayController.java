@@ -36,13 +36,14 @@ public class GatewayController {
 
     @RequestMapping(path = "/gw", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public <RS, RQ> Message<RS> recieveRequest(@RequestHeader final Map httpHeaders, @RequestBody final Message<RQ> body) throws ClassNotFoundException, IOException {
-        LOGGER.info("Request recieved to send to adapter {}",body.getDestination());
+        LOGGER.info("Request recieved to send to adapter {}", body.getDestination());
         final Exchange exchange = new DefaultExchange(camelContext);
         final Map headers = new HashMap(httpHeaders);
         headers.putAll(body.getHeaders());
         exchange.getIn().setHeaders(headers);
         exchange.getIn().setHeader("destination", body.getDestination());
         exchange.getIn().setBody(objectMapper.convertValue(body.getPayload(), Class.forName(body.getPayloadType())));
+        exchange.getIn().setHeader("resourceEndpoint", body.getResourceEndpointType());
         producerTemplate.send("direct://gw", exchange);
         final Message message = new Message();
         message.setDestination(body.getDestination());

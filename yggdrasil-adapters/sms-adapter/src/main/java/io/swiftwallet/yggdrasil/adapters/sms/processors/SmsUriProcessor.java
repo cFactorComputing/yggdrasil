@@ -22,6 +22,7 @@ public class SmsUriProcessor implements Processor {
     @Qualifier("sms-adapter")
     private ResourceAdapter resourceAdapter;
 
+
     @Override
     public void process(final Exchange exchange) throws Exception {
 
@@ -36,7 +37,7 @@ public class SmsUriProcessor implements Processor {
             query.append("&").append(key).append("=").append(params.get(key));
         }
         final WalletUserOtp walletUserOtp = message.getBody(WalletUserOtp.class);
-        String finalQuery = String.format(query.toString(), walletUserOtp.getMobileNumber(), "This is your one time password " + walletUserOtp.getOtp());
+        String finalQuery = String.format(query.toString(), walletUserOtp.getMobileNumber(), "This is your one time password " + walletUserOtp.getOtp() + "%0AThanks,%0APayTezz");
         message.setHeader(Exchange.HTTP_QUERY, finalQuery);
         message.setHeader(Exchange.HTTP_METHOD, "POST");
         exchange.getIn().setBody(null);
