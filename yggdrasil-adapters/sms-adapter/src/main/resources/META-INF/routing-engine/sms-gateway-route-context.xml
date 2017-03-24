@@ -11,6 +11,7 @@
             <from uri="direct://SMS_ADAPTER"/>
             <process ref="smsUriProcessor"/>
             <to uri="https4://127.0.0.1/"/>
+            <process ref="postProcessor"/>
         </route>
     </routeContext>
 </beans:beans>

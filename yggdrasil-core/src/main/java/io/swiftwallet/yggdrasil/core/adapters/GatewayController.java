@@ -45,6 +45,7 @@ public class GatewayController {
         exchange.getIn().setBody(objectMapper.convertValue(body.getPayload(), Class.forName(body.getPayloadType())));
         exchange.getIn().setHeader("resourceEndpoint", body.getResourceEndpointType());
         producerTemplate.send("direct://gw", exchange);
+        //TODO: Move the post processing to a processor;
         final Message message = new Message();
         message.setDestination(body.getDestination());
         message.setHeaders(body.getHeaders());
@@ -54,9 +55,11 @@ public class GatewayController {
             error.setErrorCode("Y-001");
             error.setErrorMessage(exception.getMessage());
             message.setPayload(error);
-        } else {
+        } else if (exchange.getOut().getBody() instanceof InputStream) {
             final InputStream inputStream = exchange.getOut().getBody(InputStream.class);
             message.setPayload(IOUtils.toString(inputStream));
+        } else {
+            message.setPayload(exchange.getIn().getBody());
         }
         return message;
     }
