@@ -1,6 +1,6 @@
 package io.swiftwallet.yggdrasil.adapters.sms.processors;
 
-import io.swiftwallet.io.swiftwallet.commons.domain.otp.WalletUserOtp;
+import io.swiftwallet.commons.domain.otp.WalletUserOtp;
 import io.swiftwallet.yggdrasil.core.adapters.domain.ResourceAdapter;
 import org.apache.camel.Exchange;
 import org.apache.camel.Message;
