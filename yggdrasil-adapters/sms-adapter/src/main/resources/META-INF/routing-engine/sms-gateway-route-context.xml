@@ -8,7 +8,7 @@
 
     <routeContext id="io.swiftwallet.yggdrasil.adapters.sms">
         <route id="io.swiftwallet.yggdrasil.adapters.sms.receive">
-            <from uri="direct://sms-gateway"/>
+            <from uri="direct://SMS_ADAPTER"/>
             <process ref="smsUriProcessor"/>
             <to uri="https4://127.0.0.1/"/>
         </route>

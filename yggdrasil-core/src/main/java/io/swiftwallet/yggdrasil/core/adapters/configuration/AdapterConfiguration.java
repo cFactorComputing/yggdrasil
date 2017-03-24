@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swiftwallet.odin.core.bootstrap.cd.RuntimeConfiguration;
 import io.swiftwallet.yggdrasil.core.adapters.domain.ResourceAdapter;
+import io.swiftwallet.yggdrasil.core.adapters.domain.ResourceEndpoint;
 import org.apache.commons.collections4.MapUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 
 import javax.annotation.PostConstruct;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -33,9 +35,16 @@ public class AdapterConfiguration implements BeanFactoryAware {
     public void initializeConfigurations() {
         this.objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         final Map<String, Object> adapterConfig = (Map<String, Object>) runtimeConfiguration.getConfigurations().get("adapters");
-        if(MapUtils.isNotEmpty(adapterConfig)) {
+        if (MapUtils.isNotEmpty(adapterConfig)) {
             adapterConfig.forEach((adapterCode, config) -> {
                 final ResourceAdapter resourceAdapter = objectMapper.convertValue(config, ResourceAdapter.class);
+                final Map<String, Object> resourceEndpoints = (Map<String, Object>) ((Map<String, Object>) config).get("resourceEndpoints");
+                final Map<String, ResourceEndpoint> resourceEndpointMap = new HashMap<String, ResourceEndpoint>();
+                resourceEndpoints.forEach((resourceEndpointCode, resourceEndpointConfig) -> {
+                    final ResourceEndpoint resourceEndpoint = objectMapper.convertValue(resourceEndpointConfig, ResourceEndpoint.class);
+                    resourceEndpointMap.put(resourceEndpointCode, resourceEndpoint);
+                });
+                resourceAdapter.setResourceEndPoints(resourceEndpointMap);
                 LOGGER.info("Register configuration for resource adapter {} with application context", adapterCode);
                 beanFactory.registerSingleton(adapterCode, resourceAdapter);
             });
