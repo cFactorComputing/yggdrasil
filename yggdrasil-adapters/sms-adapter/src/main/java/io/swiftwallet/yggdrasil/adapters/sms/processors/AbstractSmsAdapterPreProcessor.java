@@ -1,30 +1,33 @@
 package io.swiftwallet.yggdrasil.adapters.sms.processors;
 
-import io.swiftwallet.commons.domain.otp.WalletUserOtp;
+import io.swiftwallet.commons.domain.yggdrasil.ResourceEndpointType;
 import io.swiftwallet.yggdrasil.core.adapters.domain.ResourceAdapter;
+import io.swiftwallet.yggdrasil.core.adapters.domain.ResourceEndpoint;
 import org.apache.camel.Exchange;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
+import org.thymeleaf.context.Context;
+import org.thymeleaf.spring4.SpringTemplateEngine;
 
 import java.util.Map;
 import java.util.Set;
 
 /**
- * Created by gibugeorge on 20/03/2017.
+ * Created by gibugeorge on 27/03/2017.
  */
-@Component
-public class SmsUriProcessor implements Processor {
+public abstract class AbstractSmsAdapterPreProcessor implements Processor {
 
     @Autowired
     @Qualifier("sms-adapter")
     private ResourceAdapter resourceAdapter;
 
+    @Autowired
+    private SpringTemplateEngine springTemplateEngine;
 
     @Override
-    public void process(final Exchange exchange) throws Exception {
+    public void process(Exchange exchange) throws Exception {
 
         final Message message = exchange.getIn();
         final String httpUri = resourceAdapter.getProtocol() + "://" + resourceAdapter.getHost();
@@ -36,10 +39,17 @@ public class SmsUriProcessor implements Processor {
         for (final String key : keySet) {
             query.append("&").append(key).append("=").append(params.get(key));
         }
-        final WalletUserOtp walletUserOtp = message.getBody(WalletUserOtp.class);
-        String finalQuery = String.format(query.toString(), walletUserOtp.getMobileNumber(), "This is your one time password " + walletUserOtp.getOtp() + "%0AThanks,%0APayTezz");
+        final String resourceEndPoint = message.getHeader("resourceEndpoint", ResourceEndpointType.class).name().toLowerCase();
+        final ResourceEndpoint resourceEndpoint = resourceAdapter.getResourceEndPoints().get(resourceEndPoint);
+        final String template = resourceEndpoint.getParams().get("template");
+        final String finalQuery = String.format(query.toString(), getMobileNumber(exchange), getSmsText(exchange, template));
         message.setHeader(Exchange.HTTP_QUERY, finalQuery);
         message.setHeader(Exchange.HTTP_METHOD, "POST");
         exchange.getIn().setBody(null);
+
     }
+
+    protected abstract String getSmsText(final Exchange exchange, final String template);
+
+    protected abstract String getMobileNumber(final Exchange exchange);
 }
