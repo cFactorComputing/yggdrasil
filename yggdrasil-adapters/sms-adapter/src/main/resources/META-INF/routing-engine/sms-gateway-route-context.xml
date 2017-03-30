@@ -17,5 +17,13 @@
             <from uri="direct://REGISTRATION_OTP"/>
             <process ref="otpPreProcessor"/>
         </route>
+        <route id="io.swiftwallet.yggdrasil.adapters.sm.debit.message">
+            <from uri="direct://DEBIT_SMS"/>
+            <process ref="debitSmsPreProcessor"/>
+        </route>
+        <route id="io.swiftwallet.yggdrasil.adapters.sm.credit.message">
+            <from uri="direct://CREDIT_SMS"/>
+            <process ref="debitSmsPreProcessor"/>
+        </route>
     </routeContext>
 </beans:beans>
