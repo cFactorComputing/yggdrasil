@@ -23,7 +23,7 @@
         </route>
         <route id="io.swiftwallet.yggdrasil.adapters.sm.credit.message">
             <from uri="direct://CREDIT_SMS"/>
-            <process ref="debitSmsPreProcessor"/>
+            <process ref="creditSmsPreProcessor"/>
         </route>
     </routeContext>
 </beans:beans>
