@@ -11,15 +11,14 @@ import org.thymeleaf.context.Context;
 @Component
 public class OtpPreProcessor extends AbstractSmsAdapterPreProcessor {
 
-
     @Override
-    protected String getSmsText(Exchange exchange, String template) {
-        return String.format(template, exchange.getIn().getBody(WalletUserOtp.class).getOtp());
+    protected String getMobileNumber(final Exchange exchange) {
+        final WalletUserOtp walletUserOtp = exchange.getIn().getBody(WalletUserOtp.class);
+        return walletUserOtp.getMobileNumber();
     }
 
     @Override
-    protected String getMobileNumber(Exchange exchange) {
-        final WalletUserOtp walletUserOtp = exchange.getIn().getBody(WalletUserOtp.class);
-        return walletUserOtp.getMobileNumber();
+    protected void buildTemplateContext(Exchange exchange, final Context context) {
+        context.setVariable("otp", exchange.getIn().getBody(WalletUserOtp.class).getOtp());
     }
 }

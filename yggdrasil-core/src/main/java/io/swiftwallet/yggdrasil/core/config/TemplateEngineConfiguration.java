@@ -26,8 +26,9 @@ public class TemplateEngineConfiguration {
         final FileTemplateResolver fileTemplateResolver = new FileTemplateResolver();
         fileTemplateResolver.setPrefix(templateEngineProperties.getTemplateLocation());
         fileTemplateResolver.setSuffix(".html");
-        fileTemplateResolver.setTemplateMode(TemplateResolver.DEFAULT_TEMPLATE_MODE);
+        fileTemplateResolver.setTemplateMode("HTML5");
         fileTemplateResolver.setCacheable(false);
+        fileTemplateResolver.setOrder(1);
         return fileTemplateResolver;
     }
 
