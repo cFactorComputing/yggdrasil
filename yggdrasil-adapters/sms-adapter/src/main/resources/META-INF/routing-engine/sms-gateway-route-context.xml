@@ -7,13 +7,13 @@
 
 
     <routeContext id="io.swiftwallet.yggdrasil.adapters.sms">
-        <route id="io.swiftwallet.yggdrasil.adapters.sms.receive">
+        <route id="io.swiftwallet.yggdrasil.adapters.sms.request">
             <from uri="direct://SMS_ADAPTER"/>
-            <toD uri="direct://${header.resourceEndpoint}"/>
+            <toD uri="direct://${header.resourceEndpointType}"/>
             <to uri="https4://127.0.0.1/"/>
             <process ref="smsAdapterPostProcessor"/>
         </route>
-        <route id="io.swiftwallet.yggdrasil.adapters.sm.otp">
+        <route id="io.swiftwallet.yggdrasil.adapters.sms.otp">
             <from uri="direct://REGISTRATION_OTP"/>
             <process ref="otpPreProcessor"/>
         </route>
