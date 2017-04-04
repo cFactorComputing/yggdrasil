@@ -5,7 +5,7 @@ import org.apache.camel.Exchange;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CreditSmsPreProcessor extends DebitSmsPreProcessor {
+public class CreditSmsPreProcessor extends AbstractAccountTransferPreProcessor {
     @Override
     protected String getMobileNumber(Exchange exchange) {
         final AccountTransferNotification body = exchange.getIn().getBody(AccountTransferNotification.class);
