@@ -9,7 +9,7 @@
     <routeContext id="io.swiftwallet.yggdrasil.core">
         <route id="io.swiftwallet.yggdrasil.core.gw">
             <from uri="direct://gw"/>
-            <toD uri="direct://${header.destination}"/>
+            <toD uri="direct://${header.adapterType}"/>
         </route>
     </routeContext>
 </beans:beans>
