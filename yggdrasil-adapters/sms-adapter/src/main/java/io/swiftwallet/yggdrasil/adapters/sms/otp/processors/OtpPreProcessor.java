@@ -1,6 +1,7 @@
-package io.swiftwallet.yggdrasil.adapters.sms.processors;
+package io.swiftwallet.yggdrasil.adapters.sms.otp.processors;
 
 import io.swiftwallet.commons.domain.otp.WalletUserOtp;
+import io.swiftwallet.yggdrasil.adapters.sms.processors.AbstractSmsAdapterPreProcessor;
 import org.apache.camel.Exchange;
 import org.springframework.stereotype.Component;
 import org.thymeleaf.context.Context;

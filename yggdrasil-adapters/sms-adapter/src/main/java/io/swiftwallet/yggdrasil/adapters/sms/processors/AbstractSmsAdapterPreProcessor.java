@@ -1,6 +1,7 @@
 package io.swiftwallet.yggdrasil.adapters.sms.processors;
 
 import io.swiftwallet.commons.domain.yggdrasil.ResourceEndpointType;
+import io.swiftwallet.yggdrasil.core.YggdrasilConstants;
 import io.swiftwallet.yggdrasil.core.adapters.domain.ResourceAdapter;
 import io.swiftwallet.yggdrasil.core.adapters.domain.ResourceEndpoint;
 import io.swiftwallet.yggdrasil.core.adapters.processor.AbstractTemplatePreprocessor;
@@ -22,7 +23,7 @@ public abstract class AbstractSmsAdapterPreProcessor extends AbstractTemplatePre
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractSmsAdapterPreProcessor.class);
 
     @Autowired
-    @Qualifier("sms-adapter")
+    @Qualifier("sms_adapter")
     private ResourceAdapter resourceAdapter;
 
     @Override
@@ -37,7 +38,7 @@ public abstract class AbstractSmsAdapterPreProcessor extends AbstractTemplatePre
         for (final String key : keySet) {
             query.append("&").append(key).append("=").append(params.get(key));
         }
-        final String resourceEndPoint = message.getHeader("resourceEndpoint", ResourceEndpointType.class).name().toLowerCase();
+        final String resourceEndPoint = message.getHeader(YggdrasilConstants.RESOURCE_ENDPOINT_TYPE, ResourceEndpointType.class).name().toLowerCase();
         final ResourceEndpoint resourceEndpoint = resourceAdapter.getResourceEndPoints().get(resourceEndPoint);
         final String template = resourceEndpoint.getParams().get("template-name");
 

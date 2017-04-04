@@ -1,6 +1,7 @@
-package io.swiftwallet.yggdrasil.adapters.sms.processors;
+package io.swiftwallet.yggdrasil.adapters.sms.account.processors;
 
 import io.swiftwallet.commons.domain.account.AccountTransferNotification;
+import io.swiftwallet.yggdrasil.adapters.sms.processors.AbstractSmsAdapterPreProcessor;
 import org.apache.camel.Exchange;
 import org.apache.commons.lang3.StringUtils;
 import org.thymeleaf.context.Context;

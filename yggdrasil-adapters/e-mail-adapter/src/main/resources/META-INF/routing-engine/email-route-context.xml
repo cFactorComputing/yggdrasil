@@ -22,12 +22,18 @@
 
 
     <routeContext id="io.swiftwallet.yggdrasil.adapters.email">
-        <route id="io.swiftwallet.yggdrasil.adapters.queue">
-            <from uri="direct://E-MAIL_ADAPTER"/>
-            <process ref="emailPreprocessor"/>
+        <route id="io.swiftwallet.yggdrasil.adapters.email.request">
+            <from uri="direct://EMAIL_ADAPTER"/>
+            <toD uri="direct://${header.resourceEndpointType}"/>
             <process ref="emailUriProcessor"/>
             <toD uri="${header.mailEndpoint}"/>
         </route>
+
+        <route id="io.swiftwallet.yggdrasil.adapters.email.welcome">
+            <from uri="direct://REGISTRATION_CONFIRMATION_EMAIL"/>
+            <process ref="registrationEmailTemplateProcessor"/>
+        </route>
+
     </routeContext>
 
     <sslContextParameters id="sslContextParameters">
