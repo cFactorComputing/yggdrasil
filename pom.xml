@@ -49,6 +49,31 @@
                 <artifactId>thymeleaf-spring4</artifactId>
                 <version>${yggdrasil-thyme-leaf.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>4.3.5.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swiftwallet.yggdrasil</groupId>
+                <artifactId>yggdrasil-core</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swiftwallet.yggdrasil.adapters</groupId>
+                <artifactId>sms-adapter</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swiftwallet.yggdrasil.adapters</groupId>
+                <artifactId>e-mail-adapter</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-mail</artifactId>
+                <version>${yggdrasil-camel.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

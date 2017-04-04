@@ -55,7 +55,7 @@ public class GatewayController {
         exchange.getIn().setHeader(RESOURCE_ENDPOINT_TYPE, body.getResourceEndpointType());
         exchange.setProperty(ADAPTER_TYPE, applicationContext.getBean(destinationAdapter, ResourceAdapter.class));
         producerTemplate.send("direct://gw", exchange);
-        //TODO: Move the post processing to a processor;
+        //TODO: Move the post processing to a processors;
         final Message message = new Message();
         message.setDestination(body.getDestination());
         message.setHeaders(body.getHeaders());

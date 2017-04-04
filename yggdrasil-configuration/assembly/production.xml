@@ -12,7 +12,7 @@
             <outputDirectory>/</outputDirectory>
             <includes>
                 <include>*.cfg</include>
-                <include>/templates/**.*</include>
+                <include>/templates/**</include>
             </includes>
         </fileSet>
     </fileSets>

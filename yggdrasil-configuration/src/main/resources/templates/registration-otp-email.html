@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org" th:inline="text" >
+<body>
+
+<table style="font-family:'Arial'; background-color:#FFFFFF;" width="680" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="2" align="left" valign="top"
+            style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: rgb(68, 66, 66);">
+            <h4>  <span>Dear SwiftWallet User,</span></h4>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="left" valign="top"
+            style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: rgb(68, 66, 66);">
+            <h5>
+                <span>Welcome to Swift Wallet. Your one time password(OTP) for registration is</span>
+                <span th:text="${otp}"></span>
+                <span>Use this OTP to complete the registration process.</span>
+            </h5>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="left" valign="top"
+            style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: rgb(68, 66, 66);">
+            <div>
+                <h6><span style="color:grey;">Copyright © 2016 - 2017. SwiftWallet. All Rights Reserved.</span></h6>
+            </div>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

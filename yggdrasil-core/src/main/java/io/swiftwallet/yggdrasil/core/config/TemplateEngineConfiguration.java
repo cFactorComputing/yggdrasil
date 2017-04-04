@@ -8,7 +8,6 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.messageresolver.SpringMessageResolver;
 import org.thymeleaf.templateresolver.FileTemplateResolver;
-import org.thymeleaf.templateresolver.TemplateResolver;
 
 /**
  * Created by gibugeorge on 22/03/2017.
@@ -26,15 +25,17 @@ public class TemplateEngineConfiguration {
         final FileTemplateResolver fileTemplateResolver = new FileTemplateResolver();
         fileTemplateResolver.setPrefix(templateEngineProperties.getTemplateLocation());
         fileTemplateResolver.setSuffix(".html");
-        fileTemplateResolver.setTemplateMode(TemplateResolver.DEFAULT_TEMPLATE_MODE);
+        fileTemplateResolver.setTemplateMode("HTML5");
         fileTemplateResolver.setCacheable(false);
+        fileTemplateResolver.setOrder(1);
         return fileTemplateResolver;
     }
 
     @Bean
     public ReloadableResourceBundleMessageSource templateEngineMessageSource() {
         final ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasename(templateEngineProperties.getTemplateLocation() + "/localization");
+        final String baseName = templateEngineProperties.getTemplateLocation() + "localization";
+        messageSource.setBasename(baseName);
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }
