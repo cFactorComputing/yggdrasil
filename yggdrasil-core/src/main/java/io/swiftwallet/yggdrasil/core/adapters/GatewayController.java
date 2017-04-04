@@ -3,6 +3,7 @@ package io.swiftwallet.yggdrasil.core.adapters;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swiftwallet.commons.domain.yggdrasil.Error;
 import io.swiftwallet.commons.domain.yggdrasil.Message;
+import io.swiftwallet.yggdrasil.core.adapters.domain.ResourceAdapter;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.apache.camel.ProducerTemplate;
@@ -11,12 +12,16 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
+
+import static io.swiftwallet.yggdrasil.core.YggdrasilConstants.ADAPTER_TYPE;
+import static io.swiftwallet.yggdrasil.core.YggdrasilConstants.RESOURCE_ENDPOINT_TYPE;
 
 /**
  * Created by gibugeorge on 27/02/2017.
@@ -34,6 +39,9 @@ public class GatewayController {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @Autowired
+    private ApplicationContext applicationContext;
+
     @RequestMapping(path = "/gw", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public <RS, RQ> Message<RS> recieveRequest(@RequestHeader final Map httpHeaders, @RequestBody final Message<RQ> body) throws ClassNotFoundException, IOException {
         LOGGER.info("Request recieved to send to adapter {}", body.getDestination());
@@ -41,9 +49,11 @@ public class GatewayController {
         final Map headers = new HashMap(httpHeaders);
         headers.putAll(body.getHeaders());
         exchange.getIn().setHeaders(headers);
-        exchange.getIn().setHeader("destination", body.getDestination());
+        final String destinationAdapter = body.getDestination().name().toLowerCase();
+        exchange.getIn().setHeader(ADAPTER_TYPE, body.getDestination());
         exchange.getIn().setBody(objectMapper.convertValue(body.getPayload(), Class.forName(body.getPayloadType())));
-        exchange.getIn().setHeader("resourceEndpoint", body.getResourceEndpointType());
+        exchange.getIn().setHeader(RESOURCE_ENDPOINT_TYPE, body.getResourceEndpointType());
+        exchange.setProperty(ADAPTER_TYPE, applicationContext.getBean(destinationAdapter, ResourceAdapter.class));
         producerTemplate.send("direct://gw", exchange);
         //TODO: Move the post processing to a processor;
         final Message message = new Message();
