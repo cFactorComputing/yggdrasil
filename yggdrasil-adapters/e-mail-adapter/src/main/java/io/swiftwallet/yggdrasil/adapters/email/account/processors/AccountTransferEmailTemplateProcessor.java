@@ -23,7 +23,7 @@ public class AccountTransferEmailTemplateProcessor extends AbstractEmailTemplate
     @Override
     protected void buildEmailContextParams(final Exchange exchange, final Context context) {
         final EmailRequest emailRequest = exchange.getIn().getBody(EmailRequest.class);
-        final Double amount = emailRequest.getProperty(VALUE);
+        final Double amount = Double.valueOf(emailRequest.<String>getProperty(VALUE));
         final BigDecimal value = BigDecimal.valueOf(amount);
         final Date date = new Date(emailRequest.<Long>getProperty(DATE));
         final String transactionId = emailRequest.getProperty(TRANSACTION_ID);
