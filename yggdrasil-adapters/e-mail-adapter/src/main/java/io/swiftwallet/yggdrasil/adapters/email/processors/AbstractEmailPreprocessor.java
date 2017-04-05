@@ -22,6 +22,7 @@ public abstract class AbstractEmailPreprocessor extends AbstractTemplatePreproce
         final String resourceEndPoint = exchange.getIn().getHeader(YggdrasilConstants.RESOURCE_ENDPOINT_TYPE, ResourceEndpointType.class).name().toLowerCase();
         final ResourceEndpoint resourceEndpoint = resourceAdapter.getResourceEndPoints().get(resourceEndPoint);
         exchange.getIn().setHeader("emailHost", resourceAdapter.getHost());
+        exchange.getIn().setHeader("emailPort", String.valueOf(resourceAdapter.getPort()));
         exchange.getIn().setHeader("emailUsername", resourceAdapter.getParams().get("user-name"));
         exchange.getIn().setHeader("emailPassword", resourceAdapter.getParams().get("password"));
         exchange.getIn().setHeader("emailAuthEnabled", resourceAdapter.getParams().get("authentication-required"));
