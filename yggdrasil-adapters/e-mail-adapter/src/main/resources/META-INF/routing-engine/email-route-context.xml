@@ -29,9 +29,24 @@
             <toD uri="${header.mailEndpoint}"/>
         </route>
 
-        <route id="io.swiftwallet.yggdrasil.adapters.email.welcome">
+        <route id="io.swiftwallet.yggdrasil.adapters.email.registration">
             <from uri="direct://REGISTRATION_CONFIRMATION_EMAIL"/>
             <process ref="registrationEmailTemplateProcessor"/>
+        </route>
+
+        <route id="io.swiftwallet.yggdrasil.adapters.email.otp">
+            <from uri="direct://REGISTRATION_OTP_EMAIL"/>
+            <process ref="registrationOtpEmailTemplateProcessor"/>
+        </route>
+
+        <route id="io.swiftwallet.yggdrasil.adapters.email.account.debit">
+            <from uri="direct://DEBIT_EMAIL"/>
+            <process ref="accountTransferEmailTemplateProcessor"/>
+        </route>
+
+        <route id="io.swiftwallet.yggdrasil.adapters.email.account.credit">
+            <from uri="direct://CREDIT_EMAIL"/>
+            <process ref="accountTransferEmailTemplateProcessor"/>
         </route>
 
     </routeContext>
