@@ -18,9 +18,8 @@ public abstract class AbstractEmailTemplateProcessor extends AbstractEmailPrepro
 
         buildEmailContextParams(exchange, context);
 
-        //FIXME -- Get message using message source
-        // final String subject = messageSource.getMessage(emailRequest.getSubject(), null, context.getLocale());
-        exchange.getIn().setHeader("subject", emailRequest.getSubject());
+        final String subject = messageSource.getMessage(emailRequest.getSubject(), new Object[]{}, context.getLocale());
+        exchange.getIn().setHeader("subject", subject);
         exchange.getIn().setHeader("to", emailRequest.getEmailId());
     }
 

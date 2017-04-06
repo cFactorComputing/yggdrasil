@@ -1,12 +1,14 @@
 package io.swiftwallet.yggdrasil.core.config;
 
+import io.swiftwallet.yggdrasil.core.support.YggdrasilMessageResolver;
+import io.swiftwallet.yggdrasil.core.support.YggdrasilMessageSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.thymeleaf.messageresolver.AbstractMessageResolver;
 import org.thymeleaf.spring4.SpringTemplateEngine;
-import org.thymeleaf.spring4.messageresolver.SpringMessageResolver;
 import org.thymeleaf.templateresolver.FileTemplateResolver;
 
 /**
@@ -15,8 +17,6 @@ import org.thymeleaf.templateresolver.FileTemplateResolver;
 @Configuration
 @EnableConfigurationProperties(TemplateEngineProperties.class)
 public class TemplateEngineConfiguration {
-
-
     @Autowired
     private TemplateEngineProperties templateEngineProperties;
 
@@ -33,18 +33,12 @@ public class TemplateEngineConfiguration {
 
     @Bean
     public ReloadableResourceBundleMessageSource templateEngineMessageSource() {
-        final ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        final String baseName = templateEngineProperties.getTemplateLocation() + "localization";
-        messageSource.setBasename(baseName);
-        messageSource.setDefaultEncoding("UTF-8");
-        return messageSource;
+        return new YggdrasilMessageSource(templateEngineProperties.getTemplateLocation());
     }
 
     @Bean
-    public SpringMessageResolver templateEngineMessageResolver() {
-        final SpringMessageResolver messageResolver = new SpringMessageResolver();
-        messageResolver.setMessageSource(templateEngineMessageSource());
-        return messageResolver;
+    public AbstractMessageResolver templateEngineMessageResolver() {
+        return new YggdrasilMessageResolver(templateEngineMessageSource());
     }
 
     @Bean
@@ -54,5 +48,4 @@ public class TemplateEngineConfiguration {
         springTemplateEngine.setTemplateResolver(templateResolver());
         return springTemplateEngine;
     }
-
 }
