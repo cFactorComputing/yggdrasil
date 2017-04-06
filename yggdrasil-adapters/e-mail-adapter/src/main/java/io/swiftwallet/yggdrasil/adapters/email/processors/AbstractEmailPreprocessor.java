@@ -27,11 +27,10 @@ public abstract class AbstractEmailPreprocessor extends AbstractTemplatePreproce
         exchange.getIn().setHeader("emailPassword", resourceAdapter.getParams().get("password"));
         exchange.getIn().setHeader("emailAuthEnabled", resourceAdapter.getParams().get("authentication-required"));
         exchange.getIn().setHeader("sslEnabled", resourceAdapter.getParams().get("ssl-enabled"));
-        exchange.getIn().setHeader("contentType","text/html");
+        exchange.getIn().setHeader("contentType", "text/html");
         final String templateName = resourceEndpoint.getParams().get("template-name");
 
         final String emailInfo = processTemplate(exchange, templateName);
         exchange.getIn().setBody(emailInfo);
     }
-
 }
