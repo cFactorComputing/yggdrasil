@@ -21,7 +21,7 @@
                  <span th:text="#{email.account.debit}"></span>
                  <span th:text="${currencySymbol}"></span>
                  <span style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: rgb(255, 50, 50);" th:text="${#numbers.formatDecimal(value, 0, 'DEFAULT', 2, 'DEFAULT')}"></span>
-                 <span th:text="#{email.account.on}"></span>
+                 <span th:text="#{account.on}"></span>
                  <span th:text="${#dates.format(date, dateFormat)}"></span>.
                 </p>
                 <p>
@@ -33,7 +33,7 @@
                     <span th:text="${description}"></span>.
                 </p>
                 <p>
-                    <span th:text="#{email.account.transaction.id}"></span>#
+                    <span th:text="#{account.transaction.id}"></span>#
                     <span th:text="${transactionId}"></span>.
                 </p>
                 <p>
