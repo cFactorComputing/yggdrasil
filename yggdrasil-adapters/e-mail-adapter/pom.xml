@@ -4,11 +4,10 @@
     <parent>
         <groupId>io.swiftwallet.yggdrasil</groupId>
         <artifactId>yggdrasil-adapters</artifactId>
-        <version>1.0</version>
+        <version>1.1-SNAPSHOT</version>
     </parent>
     <groupId>io.swiftwallet.yggdrasil.adapters</groupId>
     <artifactId>e-mail-adapter</artifactId>
-    <version>1.0</version>
     <name>Swiftwallet::Yggdrasil::Adapters::E-Mail Adapter</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

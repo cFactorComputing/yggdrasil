@@ -9,7 +9,7 @@
 
     <groupId>io.swiftwallet</groupId>
     <artifactId>yggdrasil</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>SwiftWallet::Yggdrasil</name>
@@ -62,12 +62,12 @@
             <dependency>
                 <groupId>io.swiftwallet.yggdrasil.adapters</groupId>
                 <artifactId>sms-adapter</artifactId>
-                <version>1.0</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.swiftwallet.yggdrasil.adapters</groupId>
                 <artifactId>e-mail-adapter</artifactId>
-                <version>1.0</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
