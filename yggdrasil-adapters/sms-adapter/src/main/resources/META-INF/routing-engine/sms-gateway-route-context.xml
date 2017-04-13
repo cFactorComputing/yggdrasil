@@ -17,13 +17,17 @@
             <from uri="direct://REGISTRATION_OTP"/>
             <process ref="otpPreProcessor"/>
         </route>
-        <route id="io.swiftwallet.yggdrasil.adapters.sm.debit.message">
+        <route id="io.swiftwallet.yggdrasil.adapters.sms.debit.message">
             <from uri="direct://DEBIT_SMS"/>
             <process ref="debitSmsPreProcessor"/>
         </route>
-        <route id="io.swiftwallet.yggdrasil.adapters.sm.credit.message">
+        <route id="io.swiftwallet.yggdrasil.adapters.sms.credit.message">
             <from uri="direct://CREDIT_SMS"/>
             <process ref="creditSmsPreProcessor"/>
+        </route>
+        <route id="io.swiftwallet.yggdrasil.adapters.sms.user.activation">
+            <from uri="direct://USER_ACTIVATION_SMS"/>
+            <process ref="userActivationSmsPreProcessor"/>
         </route>
     </routeContext>
 </beans:beans>

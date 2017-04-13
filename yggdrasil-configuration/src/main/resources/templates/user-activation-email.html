@@ -11,16 +11,28 @@
                 <h4>  <span th:text="#{email.welcome.dear}"></span> <span th:text="${receiverName}"></span>,</h4>
         </td>
     </tr>
-    <tr>
+    <tr th:if="${activated}">
         <td colspan="2" align="left" valign="top"
             style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: rgb(68, 66, 66);">
                 <h5>
-                    <span th:text="#{email.welcome.thank.you}"></span>
+                    <span th:text="#{user.account.active}"></span>
                     <p><span th:text="#{email.welcome.details}"></span></p>
                 </h5>
         </td>
     </tr>
-    <tr>
+    <tr th:if="${not activated}">
+        <td colspan="2" align="left" valign="top"
+            style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: rgb(68, 66, 66);">
+            <h5>
+                <span th:text="#{user.account.inactive}"></span>
+                <p>
+                    <span th:text="#{user.account.inactive.details}"></span>
+                    <span th:text="#{contact.support}"></span>
+                </p>
+            </h5>
+        </td>
+    </tr>
+    <tr th:if="${activated}">
         <td colspan="2" align="left" valign="top" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: rgb(68, 66, 66);">
             <h5>
                 <span th:text="#{email.welcome.advice}"></span>

@@ -4,7 +4,7 @@
     <parent>
         <groupId>io.swiftwallet</groupId>
         <artifactId>odin</artifactId>
-        <version>1.1</version>
+        <version>1.2-SNAPSHOT</version>
     </parent>
 
     <groupId>io.swiftwallet</groupId>
@@ -17,10 +17,10 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <yggdrasil-odin.version>1.1</yggdrasil-odin.version>
+        <yggdrasil-odin.version>1.2-SNAPSHOT</yggdrasil-odin.version>
         <yggdrasil-camel.version>2.18.1</yggdrasil-camel.version>
         <yggdrasil-thyme-leaf.version>2.1.5.RELEASE</yggdrasil-thyme-leaf.version>
-        <yggdrasil-swiftwallet-commons.version>1.0</yggdrasil-swiftwallet-commons.version>
+        <yggdrasil-swiftwallet-commons.version>1.1-SNAPSHOT</yggdrasil-swiftwallet-commons.version>
     </properties>
     <dependencyManagement>
         <dependencies>

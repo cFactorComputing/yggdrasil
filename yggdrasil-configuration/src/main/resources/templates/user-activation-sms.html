@@ -1,0 +1,1 @@
+<html xmlns:th="http://www.thymeleaf.org" th:inline="text" th:remove="tag"><span th:if="${activated}" th:remove="tag">[[#{user.account.active}]][[#{email.welcome.advice}]]</span><span th:remove="tag" th:if="${not activated}">[[#{user.account.inactive}]][[#{user.account.inactive.details}]]</span></html>
