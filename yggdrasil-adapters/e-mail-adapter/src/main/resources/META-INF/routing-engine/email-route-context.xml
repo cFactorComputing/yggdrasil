@@ -27,6 +27,7 @@
             <toD uri="direct://${header.resourceEndpointType}"/>
             <process ref="emailUriProcessor"/>
             <toD uri="${header.mailEndpoint}"/>
+            <process ref="emailAdapterPostProcessor"/>
         </route>
 
         <route id="io.swiftwallet.yggdrasil.adapters.email.registration">
@@ -47,6 +48,11 @@
         <route id="io.swiftwallet.yggdrasil.adapters.email.account.credit">
             <from uri="direct://CREDIT_EMAIL"/>
             <process ref="accountTransferEmailTemplateProcessor"/>
+        </route>
+
+        <route id="io.swiftwallet.yggdrasil.adapters.email.user.activation">
+            <from uri="direct://USER_ACTIVATION_EMAIL"/>
+            <process ref="userActivationEmailTemplateProcessor"/>
         </route>
 
     </routeContext>
