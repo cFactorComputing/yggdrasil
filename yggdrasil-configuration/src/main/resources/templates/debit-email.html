@@ -9,7 +9,7 @@
         <td colspan="2" align="left" valign="top"
             style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: rgb(68, 66, 66);">
             <h4>
-                <span th:text="#{email.welcome.dear}"></span> <span th:text="${receiverName}"></span>,
+                <span th:text="#{email.welcome.dear}"></span>&nbsp;<span th:text="${receiverName}"></span>,
             </h4>
         </td>
     </tr>
@@ -18,7 +18,7 @@
             style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: rgb(68, 66, 66);">
             <h5>
                 <p>
-                 <span th:text="#{email.account.debit}"></span>
+                 <span th:text="#{email.account.debit}"></span>&nbsp;
                  <span th:text="${currencySymbol}"></span>
                  <span style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: rgb(255, 50, 50);" th:text="${#numbers.formatDecimal(value, 0, 'DEFAULT', 2, 'DEFAULT')}"></span>
                  <span th:text="#{account.on}"></span>
