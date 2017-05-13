@@ -1,0 +1,1 @@
+<html xmlns:th="http://www.thymeleaf.org" th:inline="text" th:remove="tag"><span th:if="${activated}" th:remove="tag">[[#{merchant.loyalty.config.active}]] [[#{merchant.loyalty.config.title}]] : [[${title}]]</span><span th:remove="tag" th:if="${not activated}">[[#{merchant.loyalty.config.inactive}]] [[#{merchant.loyalty.config.title}]] : [[${title}]]</span></html>
