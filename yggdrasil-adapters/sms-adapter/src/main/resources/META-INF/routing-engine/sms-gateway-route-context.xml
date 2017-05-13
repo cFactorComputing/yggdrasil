@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://camel.apache.org/schema/spring"
-             xmlns:context="http://www.springframework.org/schema/context"
              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
 
     <routeContext id="io.swiftwallet.yggdrasil.adapters.sms">
@@ -28,6 +27,10 @@
         <route id="io.swiftwallet.yggdrasil.adapters.sms.user.activation">
             <from uri="direct://USER_ACTIVATION_SMS"/>
             <process ref="userActivationSmsPreProcessor"/>
+        </route>
+        <route id="io.swiftwallet.yggdrasil.adapters.sms.loyalty.config.activation">
+            <from uri="direct://LOYALTY_CONFIG_ACTIVATION_SMS"/>
+            <process ref="loyaltyConfigActivationSmsPreProcessor"/>
         </route>
     </routeContext>
 </beans:beans>
