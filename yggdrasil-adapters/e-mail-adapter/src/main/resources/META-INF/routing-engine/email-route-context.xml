@@ -60,6 +60,11 @@
             <process ref="loyaltyConfigActivationEmailTemplateProcessor"/>
         </route>
 
+        <route id="io.swiftwallet.yggdrasil.adapters.email.user.loyalty.subscription">
+            <from uri="direct://LOYALTY_SUBSCRIPTION_EMAIL"/>
+            <process ref="userActivationEmailTemplateProcessor"/>
+        </route>
+
     </routeContext>
 
     <sslContextParameters id="sslContextParameters">
