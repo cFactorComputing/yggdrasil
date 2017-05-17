@@ -32,5 +32,9 @@
             <from uri="direct://LOYALTY_CONFIG_ACTIVATION_SMS"/>
             <process ref="loyaltyConfigActivationSmsPreProcessor"/>
         </route>
+        <route id="io.swiftwallet.yggdrasil.adapters.sms.user.loyalty.subscription">
+            <from uri="direct://LOYALTY_SUBSCRIPTION_SMS"/>
+            <process ref="userLoyaltySubscriptionSmsPreProcessor"/>
+        </route>
     </routeContext>
 </beans:beans>
