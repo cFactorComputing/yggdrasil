@@ -23,8 +23,8 @@ public class CoinCollectionEmailTemplateProcessor extends AbstractEmailTemplateP
     @Override
     protected void buildEmailContextParams(final Exchange exchange, final Context context) {
         final EmailRequest emailRequest = exchange.getIn().getBody(EmailRequest.class);
-        final Double coins = Double.valueOf(emailRequest.<String>getProperty(COINS));
-        final Double purchaseAmount = Double.valueOf(emailRequest.<String>getProperty(PURCHASE_AMOUNT));
+        final Double coins = emailRequest.<Double>getProperty(COINS);
+        final Double purchaseAmount = emailRequest.<Double>getProperty(PURCHASE_AMOUNT);
         final Date date = new Date(emailRequest.<Long>getProperty(DATE));
         final String walletUser = emailRequest.getProperty(WALLET_USER);
         final String merchant = emailRequest.getProperty(MERCHANT);
