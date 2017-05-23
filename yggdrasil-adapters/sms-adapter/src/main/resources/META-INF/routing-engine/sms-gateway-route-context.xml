@@ -36,5 +36,13 @@
             <from uri="direct://LOYALTY_SUBSCRIPTION_SMS"/>
             <process ref="userLoyaltySubscriptionSmsPreProcessor"/>
         </route>
+        <route id="io.swiftwallet.yggdrasil.adapters.sms.user.loyalty.coin">
+            <from uri="direct://COIN_COLLECTION_USER_SMS"/>
+            <process ref="coinCollectionSmsTemplateProcessor"/>
+        </route>
+        <route id="io.swiftwallet.yggdrasil.adapters.sms.merchant.loyalty.coin">
+            <from uri="direct://COIN_COLLECTION_MERCHANT_SMS"/>
+            <process ref="coinCollectionSmsTemplateProcessor"/>
+        </route>
     </routeContext>
 </beans:beans>
