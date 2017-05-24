@@ -65,6 +65,16 @@
             <process ref="userLoyaltySubscriptionEmailTemplateProcessor"/>
         </route>
 
+        <route id="io.swiftwallet.yggdrasil.adapters.email.user.loyalty.coin.collection">
+            <from uri="direct://COIN_COLLECTION_USER_EMAIL"/>
+            <process ref="coinCollectionEmailTemplateProcessor"/>
+        </route>
+
+        <route id="io.swiftwallet.yggdrasil.adapters.email.merchant.loyalty.coin.collection">
+            <from uri="direct://COIN_COLLECTION_MERCHANT_EMAIL"/>
+            <process ref="coinCollectionEmailTemplateProcessor"/>
+        </route>
+
     </routeContext>
 
     <sslContextParameters id="sslContextParameters">
