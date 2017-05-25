@@ -25,16 +25,20 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.BootstrapWith;
 import org.springframework.test.context.ContextConfiguration;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.when;
 
+/**
+ * Created by sheraf on 24/05/17.
+ */
 @RunWith(CamelSpringRunner.class)
 @BootstrapWith(CamelTestContextBootstrapper.class)
-@ContextConfiguration(classes = {EmailTestConfiguration.class, UserLoyaltySubscriptionEmailTemplateProcessorTest.ContextConfig.class, OdinBootstrapConfiguration.class}, loader = CamelSpringDelegatingTestContextLoader.class)
-public class UserLoyaltySubscriptionEmailTemplateProcessorTest {
+@ContextConfiguration(classes = {EmailTestConfiguration.class, LoyaltyConfigActivationEmailTemplateProcessorTest.ContextConfig.class, OdinBootstrapConfiguration.class}, loader = CamelSpringDelegatingTestContextLoader.class)
+public class LoyaltyConfigActivationEmailTemplateProcessorTest {
 
     @EndpointInject(uri = "mock:result")
     protected MockEndpoint resultEndpoint;
@@ -45,26 +49,25 @@ public class UserLoyaltySubscriptionEmailTemplateProcessorTest {
     private ResourceAdapter resourceAdapter;
 
     @Test
-    public void loyaltySubscriptionEmailProcess() {
+    public void loyaltyConfigActivationEmailProcess() {
         Map<String, String> params = new HashMap<>();
-        params.put("template-name", "user-loyalty-subscription-email");
+        params.put("template-name", "loyalty-config-activation-email");
         final ResourceEndpoint emailEndPoint = new ResourceEndpoint();
         emailEndPoint.setParams(params);
         Map<String, ResourceEndpoint> endPoint = new HashMap<>();
-        endPoint.put(ResourceEndpointType.LOYALTY_SUBSCRIPTION_EMAIL.name().toLowerCase(), emailEndPoint);
+        endPoint.put(ResourceEndpointType.LOYALTY_CONFIG_ACTIVATION_EMAIL.name().toLowerCase(), emailEndPoint);
         when(resourceAdapter.getResourceEndPoints()).thenReturn(endPoint);
 
         final EmailRequest emailRequest = new EmailRequest();
         emailRequest.setEmailId("unittest@test.com");
         emailRequest.setReceiverName("tester");
-        emailRequest.setSubject("email.user.loyalty.subscribed.subject");
-        emailRequest.addProperty("mobileNumber", "9999999999");
-        emailRequest.addProperty("businessName", "SwiftWallet");
-        emailRequest.addProperty("programName", "Premium Loyalty");
-        emailRequest.addProperty("rule", "Sample Rule");
+        emailRequest.setSubject("email.loyalty.config.active.subject");
+        emailRequest.addProperty("title", "Test title");
+        emailRequest.addProperty("activated", true);
+        emailRequest.addProperty("expiryDate", new Date().getTime());
 
         Map<String, Object> headers = new HashMap<>();
-        headers.put(YggdrasilConstants.RESOURCE_ENDPOINT_TYPE, ResourceEndpointType.LOYALTY_SUBSCRIPTION_EMAIL);
+        headers.put(YggdrasilConstants.RESOURCE_ENDPOINT_TYPE, ResourceEndpointType.LOYALTY_CONFIG_ACTIVATION_EMAIL);
         template.sendBodyAndHeaders(emailRequest, headers);
         assertNotNull(resultEndpoint.getReceivedExchanges());
     }
@@ -72,7 +75,7 @@ public class UserLoyaltySubscriptionEmailTemplateProcessorTest {
     @Configuration
     public static class ContextConfig extends SingleRouteCamelConfiguration {
         @Autowired
-        private UserLoyaltySubscriptionEmailTemplateProcessor processor;
+        private LoyaltyConfigActivationEmailTemplateProcessor processor;
 
         @Bean
         public RouteBuilder route() {
@@ -83,6 +86,4 @@ public class UserLoyaltySubscriptionEmailTemplateProcessorTest {
             };
         }
     }
-
-
 }
