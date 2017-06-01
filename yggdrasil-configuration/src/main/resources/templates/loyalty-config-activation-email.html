@@ -25,7 +25,7 @@
                     <span th:text="#{merchant.loyalty.config.title}"></span> : <span th:text="${title}"></span>
                 </p>
                 <p>
-                    <span th:text="#{merchant.loyalty.config.expiry}"></span> : <span th:text="${#dates.format(expiryDate, dateFormat)}"></span>
+                    <span th:text="#{merchant.loyalty.config.expiry}"></span> : <span th:text="${expiryTerm}"></span>
                 </p>
             </h5>
         </td>
