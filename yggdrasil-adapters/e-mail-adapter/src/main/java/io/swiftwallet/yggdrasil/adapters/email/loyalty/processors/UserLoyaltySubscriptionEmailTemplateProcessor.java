@@ -12,6 +12,7 @@ public class UserLoyaltySubscriptionEmailTemplateProcessor extends AbstractEmail
     private static final String BUSINESS_NAME = "businessName";
     private static final String PROGRAM_NAME = "programName";
     private static final String PROGRAM_RULE = "rule";
+    private static final String SUBSCRIBED = "subscribed";
 
     @Override
     protected void buildEmailContextParams(final Exchange exchange, final Context context) {
@@ -20,9 +21,12 @@ public class UserLoyaltySubscriptionEmailTemplateProcessor extends AbstractEmail
         final String businessName = emailRequest.getProperty(BUSINESS_NAME);
         final String programName = emailRequest.getProperty(PROGRAM_NAME);
         final String rule = emailRequest.getProperty(PROGRAM_RULE);
+        final Boolean subscribed = emailRequest.getProperty(SUBSCRIBED);
+
         context.setVariable(MOBILE_NUMBER, mobileNumber);
         context.setVariable(BUSINESS_NAME, businessName);
         context.setVariable(PROGRAM_NAME, programName);
         context.setVariable(PROGRAM_RULE, rule);
+        context.setVariable(SUBSCRIBED, subscribed != null ? subscribed : true);
     }
 }
