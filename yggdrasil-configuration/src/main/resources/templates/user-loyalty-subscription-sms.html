@@ -1,1 +1,1 @@
-<html xmlns:th="http://www.thymeleaf.org" th:inline="text" th:remove="tag">[[#{user.loyalty.subscribe}]] ${businessName}</span></html>
+<html xmlns:th="http://www.thymeleaf.org" th:inline="text" th:remove="tag"><span th:if="${subscribed}" th:remove="tag">[[#{user.loyalty.subscribe}]] [[${businessName}]]</span><span th:if="${not subscribed}" th:remove="tag">[[#{user.loyalty.unsubscribed}]]. [[#{user.unsubscribe.loyalty.details( ${businessName} )}]]</span></html>
