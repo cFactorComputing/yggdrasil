@@ -44,5 +44,13 @@
             <from uri="direct://COIN_COLLECTION_MERCHANT_SMS"/>
             <process ref="coinCollectionSmsTemplateProcessor"/>
         </route>
+        <route id="io.swiftwallet.yggdrasil.adapters.sms.otp.reset.password">
+            <from uri="direct://RESET_PASSWORD_OTP_SMS"/>
+            <process ref="otpPreProcessor"/>
+        </route>
+        <route id="io.swiftwallet.yggdrasil.adapters.sms.reset.password">
+            <from uri="direct://RESET_PASSWORD_SMS"/>
+            <process ref="resetPasswordSmsPreProcessor"/>
+        </route>
     </routeContext>
 </beans:beans>
