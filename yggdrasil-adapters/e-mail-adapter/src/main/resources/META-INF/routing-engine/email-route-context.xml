@@ -67,12 +67,22 @@
 
         <route id="io.swiftwallet.yggdrasil.adapters.email.user.loyalty.coin.collection">
             <from uri="direct://COIN_COLLECTION_USER_EMAIL"/>
-            <process ref="coinCollectionEmailTemplateProcessor"/>
+            <process ref="coinEventEmailTemplateProcessor"/>
         </route>
 
         <route id="io.swiftwallet.yggdrasil.adapters.email.merchant.loyalty.coin.collection">
             <from uri="direct://COIN_COLLECTION_MERCHANT_EMAIL"/>
-            <process ref="coinCollectionEmailTemplateProcessor"/>
+            <process ref="coinEventEmailTemplateProcessor"/>
+        </route>
+
+        <route id="io.swiftwallet.yggdrasil.adapters.email.user.loyalty.coin.redemption">
+            <from uri="direct://COIN_REDEMPTION_USER_EMAIL"/>
+            <process ref="coinEventEmailTemplateProcessor"/>
+        </route>
+
+        <route id="io.swiftwallet.yggdrasil.adapters.email.merchant.loyalty.coin.redemption">
+            <from uri="direct://COIN_REDEMPTION_MERCHANT_EMAIL"/>
+            <process ref="coinEventEmailTemplateProcessor"/>
         </route>
 
         <route id="io.swiftwallet.yggdrasil.adapters.email.reset.password.otp">
