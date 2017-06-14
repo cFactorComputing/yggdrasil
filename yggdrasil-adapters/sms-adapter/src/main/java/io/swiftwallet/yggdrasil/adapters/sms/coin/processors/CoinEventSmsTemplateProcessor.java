@@ -19,6 +19,7 @@ public class CoinEventSmsTemplateProcessor extends AbstractSmsAdapterPreProcesso
     private static final String CURRENCY_SYMBOL = "currencySymbol";
     private static final String PURCHASE_AMOUNT = "purchaseAmount";
     private static final String WALLET_USER = "walletUser";
+    private static final String MERCHANT = "merchant";
 
     @Override
     protected String getMobileNumber(final Exchange exchange) {
@@ -32,6 +33,7 @@ public class CoinEventSmsTemplateProcessor extends AbstractSmsAdapterPreProcesso
         final String currencySymbol = exchange.getIn().getHeader("currencySymbol", String.class);
         final String dateFormat = exchange.getIn().getHeader("dateFormat", String.class);
         final String walletUser = (String) params.get(WALLET_USER);
+        final String merchant = (String) params.get(MERCHANT);
 
         final Double coins = (Double) params.get(COINS);
         final Double purchaseAmount = params.get(PURCHASE_AMOUNT) != null ?
@@ -44,5 +46,6 @@ public class CoinEventSmsTemplateProcessor extends AbstractSmsAdapterPreProcesso
         context.setVariable(WALLET_USER, walletUser);
         context.setVariable(CURRENCY_SYMBOL, StringUtils.defaultIfEmpty(currencySymbol, "INR"));
         context.setVariable(DATE_FORMAT, StringUtils.defaultIfEmpty(dateFormat, "dd-MMM-yyyy"));
+        context.setVariable(MERCHANT, merchant);
     }
 }
