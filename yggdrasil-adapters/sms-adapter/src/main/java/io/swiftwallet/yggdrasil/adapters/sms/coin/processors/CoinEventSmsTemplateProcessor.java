@@ -3,6 +3,7 @@ package io.swiftwallet.yggdrasil.adapters.sms.coin.processors;
 import io.swiftwallet.yggdrasil.adapters.sms.processors.AbstractSmsAdapterPreProcessor;
 import org.apache.camel.Exchange;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.stereotype.Component;
 import org.thymeleaf.context.Context;
 
@@ -33,7 +34,8 @@ public class CoinEventSmsTemplateProcessor extends AbstractSmsAdapterPreProcesso
         final String walletUser = (String) params.get(WALLET_USER);
 
         final Double coins = (Double) params.get(COINS);
-        final Double purchaseAmount = (Double) params.get(PURCHASE_AMOUNT);
+        final Double purchaseAmount = params.get(PURCHASE_AMOUNT) != null ?
+                NumberUtils.toDouble(params.get(PURCHASE_AMOUNT).toString()) : 0;
         final Date date = new Date((Long) params.get(DATE));
 
         context.setVariable(COINS, BigDecimal.valueOf(coins));

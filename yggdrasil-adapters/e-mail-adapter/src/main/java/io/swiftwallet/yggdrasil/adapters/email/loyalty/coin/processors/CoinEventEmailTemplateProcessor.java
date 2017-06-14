@@ -4,6 +4,7 @@ import io.swiftwallet.commons.domain.yggdrasil.email.EmailRequest;
 import io.swiftwallet.yggdrasil.adapters.email.processors.AbstractEmailTemplateProcessor;
 import org.apache.camel.Exchange;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.stereotype.Component;
 import org.thymeleaf.context.Context;
 
@@ -24,7 +25,8 @@ public class CoinEventEmailTemplateProcessor extends AbstractEmailTemplateProces
     protected void buildEmailContextParams(final Exchange exchange, final Context context) {
         final EmailRequest emailRequest = exchange.getIn().getBody(EmailRequest.class);
         final Double coins = emailRequest.<Double>getProperty(COINS);
-        final Double purchaseAmount = emailRequest.<Double>getProperty(PURCHASE_AMOUNT);
+        final Double purchaseAmount = emailRequest.getProperty(PURCHASE_AMOUNT) != null ?
+                NumberUtils.toDouble(emailRequest.getProperty(PURCHASE_AMOUNT).toString()) : 0;
         final Date date = new Date(emailRequest.<Long>getProperty(DATE));
         final String walletUser = emailRequest.getProperty(WALLET_USER);
         final String merchant = emailRequest.getProperty(MERCHANT);
