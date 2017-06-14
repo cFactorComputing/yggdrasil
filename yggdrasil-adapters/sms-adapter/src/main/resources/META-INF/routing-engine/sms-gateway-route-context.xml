@@ -38,11 +38,19 @@
         </route>
         <route id="io.swiftwallet.yggdrasil.adapters.sms.user.loyalty.coin">
             <from uri="direct://COIN_COLLECTION_USER_SMS"/>
-            <process ref="coinCollectionSmsTemplateProcessor"/>
+            <process ref="coinEventSmsTemplateProcessor"/>
         </route>
         <route id="io.swiftwallet.yggdrasil.adapters.sms.merchant.loyalty.coin">
             <from uri="direct://COIN_COLLECTION_MERCHANT_SMS"/>
-            <process ref="coinCollectionSmsTemplateProcessor"/>
+            <process ref="coinEventSmsTemplateProcessor"/>
+        </route>
+        <route id="io.swiftwallet.yggdrasil.adapters.sms.user.loyalty.coin.redemption">
+            <from uri="direct://COIN_REDEMPTION_USER_SMS"/>
+            <process ref="coinEventSmsTemplateProcessor"/>
+        </route>
+        <route id="io.swiftwallet.yggdrasil.adapters.sms.merchant.loyalty.coin.redemption">
+            <from uri="direct://COIN_REDEMPTION_MERCHANT_SMS"/>
+            <process ref="coinEventSmsTemplateProcessor"/>
         </route>
     </routeContext>
 </beans:beans>
