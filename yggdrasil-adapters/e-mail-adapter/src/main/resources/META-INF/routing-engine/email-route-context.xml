@@ -85,6 +85,16 @@
             <process ref="coinEventEmailTemplateProcessor"/>
         </route>
 
+        <route id="io.swiftwallet.yggdrasil.adapters.email.reset.password.otp">
+            <from uri="direct://RESET_PASSWORD_OTP_EMAIL"/>
+            <process ref="registrationOtpEmailTemplateProcessor"/>
+        </route>
+
+        <route id="io.swiftwallet.yggdrasil.adapters.email.reset.password">
+            <from uri="direct://RESET_PASSWORD_EMAIL"/>
+            <process ref="resetPasswordEmailTemplateProcessor"/>
+        </route>
+
     </routeContext>
 
     <sslContextParameters id="sslContextParameters">
