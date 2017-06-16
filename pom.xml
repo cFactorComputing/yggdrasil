@@ -4,12 +4,12 @@
     <parent>
         <groupId>io.swiftwallet</groupId>
         <artifactId>odin</artifactId>
-        <version>1.2-SNAPSHOT</version>
+        <version>1.2</version>
     </parent>
 
     <groupId>io.swiftwallet</groupId>
     <artifactId>yggdrasil</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.1</version>
     <packaging>pom</packaging>
 
     <name>SwiftWallet::Yggdrasil</name>
@@ -28,7 +28,7 @@
             <dependency>
                 <groupId>io.swiftwallet.odin</groupId>
                 <artifactId>odin-core</artifactId>
-                <version>${yggdrasil-odin.version}</version>
+                <version>1.2</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
@@ -38,7 +38,7 @@
             <dependency>
                 <groupId>io.swiftwallet.commons</groupId>
                 <artifactId>domain</artifactId>
-                <version>${yggdrasil-swiftwallet-commons.version}</version>
+                <version>1.1</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
@@ -105,7 +105,7 @@
         <developerConnection>
             scm:git:ssh://gibu.george@git.swiftwallet.aws.local/swiftwallet/yggdrasil.git
         </developerConnection>
-      <tag>yggdrasil-1.0</tag>
+      <tag>yggdrasil-1.1</tag>
   </scm>
 
 </project>
