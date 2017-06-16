@@ -15,7 +15,7 @@ public class RegistrationEmailTemplateProcessor extends AbstractEmailTemplatePro
     @Value("${admin-bcc-email-enabled:false}")
     private boolean adminBccEnabled;
 
-    @Value("${admin-bcc-email}")
+    @Value("${admin-bcc-email:admin@paytezz.com}")
     private String adminBccEmail;
 
     @Override
