@@ -9,7 +9,7 @@
 
     <groupId>io.swiftwallet</groupId>
     <artifactId>yggdrasil</artifactId>
-    <version>1.1</version>
+    <version>1.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>SwiftWallet::Yggdrasil</name>
@@ -17,10 +17,10 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <yggdrasil-odin.version>1.2-SNAPSHOT</yggdrasil-odin.version>
+        <yggdrasil-odin.version>1.2</yggdrasil-odin.version>
         <yggdrasil-camel.version>2.18.1</yggdrasil-camel.version>
         <yggdrasil-thyme-leaf.version>2.1.5.RELEASE</yggdrasil-thyme-leaf.version>
-        <yggdrasil-swiftwallet-commons.version>1.1-SNAPSHOT</yggdrasil-swiftwallet-commons.version>
+        <yggdrasil-swiftwallet-commons.version>1.2-SNAPSHOT</yggdrasil-swiftwallet-commons.version>
         <yggdrasil-apache-commomns.version>1.2</yggdrasil-apache-commomns.version>
     </properties>
     <dependencyManagement>
@@ -28,7 +28,7 @@
             <dependency>
                 <groupId>io.swiftwallet.odin</groupId>
                 <artifactId>odin-core</artifactId>
-                <version>1.2</version>
+                <version>${yggdrasil-odin.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
@@ -38,7 +38,7 @@
             <dependency>
                 <groupId>io.swiftwallet.commons</groupId>
                 <artifactId>domain</artifactId>
-                <version>1.1</version>
+                <version>${yggdrasil-swiftwallet-commons.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>

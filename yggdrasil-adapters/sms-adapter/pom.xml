@@ -4,7 +4,7 @@
     <parent>
         <groupId>io.swiftwallet.yggdrasil</groupId>
         <artifactId>yggdrasil-adapters</artifactId>
-        <version>1.1</version>
+        <version>1.2-SNAPSHOT</version>
     </parent>
     <groupId>io.swiftwallet.yggdrasil.adapters</groupId>
     <artifactId>sms-adapter</artifactId>
