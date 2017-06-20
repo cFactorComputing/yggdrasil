@@ -1,8 +1,8 @@
 package io.swiftwallet.yggdrasil.core.adapters;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.swiftwallet.commons.domain.yggdrasil.Error;
-import io.swiftwallet.commons.domain.yggdrasil.Message;
+import in.cfcomputing.commons.yggdrasil.domain.Error;
+import in.cfcomputing.commons.yggdrasil.domain.Message;
 import io.swiftwallet.yggdrasil.core.adapters.domain.ResourceAdapter;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
@@ -13,7 +13,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -49,7 +53,7 @@ public class GatewayController {
         final Map headers = new HashMap(httpHeaders);
         headers.putAll(body.getHeaders());
         exchange.getIn().setHeaders(headers);
-        final String destinationAdapter = body.getDestination().name().toLowerCase();
+        final String destinationAdapter = body.getDestination().toString();
         exchange.getIn().setHeader(ADAPTER_TYPE, body.getDestination());
         exchange.getIn().setBody(objectMapper.convertValue(body.getPayload(), Class.forName(body.getPayloadType())));
         exchange.getIn().setHeader(RESOURCE_ENDPOINT_TYPE, body.getResourceEndpointType());

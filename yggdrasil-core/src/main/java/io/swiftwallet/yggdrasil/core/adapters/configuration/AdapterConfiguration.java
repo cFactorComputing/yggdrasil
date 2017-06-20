@@ -2,7 +2,7 @@ package io.swiftwallet.yggdrasil.core.adapters.configuration;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.swiftwallet.odin.core.bootstrap.cd.RuntimeConfiguration;
+import in.cfcomputing.odin.core.bootstrap.cd.RuntimeConfiguration;
 import io.swiftwallet.yggdrasil.core.adapters.domain.ResourceAdapter;
 import io.swiftwallet.yggdrasil.core.adapters.domain.ResourceEndpoint;
 import org.apache.commons.collections4.MapUtils;

@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>io.swiftwallet</groupId>
+        <groupId>in.cfcomputing</groupId>
         <artifactId>odin</artifactId>
-        <version>1.2</version>
+        <version>1.3-SNAPSHOT</version>
     </parent>
 
     <groupId>io.swiftwallet</groupId>
@@ -17,17 +17,28 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <yggdrasil-odin.version>1.2</yggdrasil-odin.version>
+        <yggdrasil-odin.version>1.3-SNAPSHOT</yggdrasil-odin.version>
         <yggdrasil-camel.version>2.18.1</yggdrasil-camel.version>
         <yggdrasil-thyme-leaf.version>2.1.5.RELEASE</yggdrasil-thyme-leaf.version>
         <yggdrasil-swiftwallet-commons.version>1.2-SNAPSHOT</yggdrasil-swiftwallet-commons.version>
+        <yggdrasil-cfactor-commons.version>1.0-SNAPSHOT</yggdrasil-cfactor-commons.version>
         <yggdrasil-apache-commomns.version>1.2</yggdrasil-apache-commomns.version>
     </properties>
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>io.swiftwallet.odin</groupId>
+                <groupId>io.swiftwallet.commons</groupId>
+                <artifactId>domain</artifactId>
+                <version>${yggdrasil-swiftwallet-commons.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>in.cfcomputing.odin</groupId>
                 <artifactId>odin-core</artifactId>
+                <version>${yggdrasil-odin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>in.cfcomputing.odin</groupId>
+                <artifactId>odin-domain</artifactId>
                 <version>${yggdrasil-odin.version}</version>
             </dependency>
             <dependency>
@@ -36,9 +47,9 @@
                 <version>${yggdrasil-camel.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.swiftwallet.commons</groupId>
-                <artifactId>domain</artifactId>
-                <version>${yggdrasil-swiftwallet-commons.version}</version>
+                <groupId>in.cfcomputing.commons</groupId>
+                <artifactId>commons-yggdrasil</artifactId>
+                <version>${yggdrasil-cfactor-commons.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>

@@ -1,7 +1,7 @@
 package io.swiftwallet.yggdrasil.adapters.email.support;
 
 
-import io.swiftwallet.odin.core.bootstrap.cd.RuntimeConfiguration;
+import in.cfcomputing.odin.core.bootstrap.cd.RuntimeConfiguration;
 import io.swiftwallet.yggdrasil.core.adapters.domain.ResourceAdapter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

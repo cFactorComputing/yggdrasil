@@ -1,7 +1,7 @@
 package io.swiftwallet.yggdrasil.adapters.sms.processors;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.swiftwallet.commons.domain.yggdrasil.Error;
+import in.cfcomputing.commons.yggdrasil.domain.Error;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.springframework.beans.factory.annotation.Autowired;

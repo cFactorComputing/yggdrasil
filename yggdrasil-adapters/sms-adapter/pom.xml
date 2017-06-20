@@ -14,7 +14,7 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>io.swiftwallet.odin</groupId>
+            <groupId>in.cfcomputing.odin</groupId>
             <artifactId>odin-core</artifactId>
             <scope>provided</scope>
         </dependency>
@@ -37,6 +37,10 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>in.cfcomputing.commons</groupId>
+            <artifactId>commons-yggdrasil</artifactId>
         </dependency>
         <dependency>
             <groupId>io.swiftwallet.commons</groupId>
