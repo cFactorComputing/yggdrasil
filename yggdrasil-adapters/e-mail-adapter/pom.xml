@@ -14,7 +14,7 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>io.swiftwallet.odin</groupId>
+            <groupId>in.cfcomputing.odin</groupId>
             <artifactId>odin-core</artifactId>
         </dependency>
         <dependency>
@@ -45,6 +45,14 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>in.cfcomputing.commons</groupId>
+            <artifactId>commons-yggdrasil</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.swiftwallet.commons</groupId>
+            <artifactId>domain</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>

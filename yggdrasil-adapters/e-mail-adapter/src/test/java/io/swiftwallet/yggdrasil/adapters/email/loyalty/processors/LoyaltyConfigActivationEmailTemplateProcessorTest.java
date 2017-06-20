@@ -1,8 +1,8 @@
 package io.swiftwallet.yggdrasil.adapters.email.loyalty.processors;
 
+import in.cfcomputing.odin.core.bootstrap.config.OdinBootstrapConfiguration;
 import io.swiftwallet.commons.domain.yggdrasil.ResourceEndpointType;
 import io.swiftwallet.commons.domain.yggdrasil.email.EmailRequest;
-import io.swiftwallet.odin.core.bootstrap.config.OdinBootstrapConfiguration;
 import io.swiftwallet.yggdrasil.adapters.email.support.EmailTestConfiguration;
 import io.swiftwallet.yggdrasil.core.YggdrasilConstants;
 import io.swiftwallet.yggdrasil.core.adapters.domain.ResourceAdapter;
@@ -37,7 +37,8 @@ import static org.mockito.Mockito.when;
  */
 @RunWith(CamelSpringRunner.class)
 @BootstrapWith(CamelTestContextBootstrapper.class)
-@ContextConfiguration(classes = {EmailTestConfiguration.class, LoyaltyConfigActivationEmailTemplateProcessorTest.ContextConfig.class, OdinBootstrapConfiguration.class}, loader = CamelSpringDelegatingTestContextLoader.class)
+@ContextConfiguration(classes = {EmailTestConfiguration.class,
+        LoyaltyConfigActivationEmailTemplateProcessorTest.ContextConfig.class, OdinBootstrapConfiguration.class}, loader = CamelSpringDelegatingTestContextLoader.class)
 public class LoyaltyConfigActivationEmailTemplateProcessorTest {
 
     @EndpointInject(uri = "mock:result")

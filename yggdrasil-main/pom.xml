@@ -15,7 +15,7 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>io.swiftwallet.odin</groupId>
+            <groupId>in.cfcomputing.odin</groupId>
             <artifactId>odin-core</artifactId>
         </dependency>
         <dependency>
