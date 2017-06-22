@@ -7,9 +7,9 @@ import org.springframework.core.io.ResourceLoader;
 public class YggdrasilMessageSource extends ReloadableResourceBundleMessageSource {
     private final boolean initialized;
 
-    public YggdrasilMessageSource(final String location) {
+    public YggdrasilMessageSource(final String location, final String messagePath) {
         setResourceLoader(new DefaultResourceLoader());
-        final String baseName = "file:" + location + "/i18n/messages";
+        final String baseName = "file:" + location + "/" + messagePath;
         setBasename(baseName);
         setDefaultEncoding("UTF-8");
         this.initialized = true;

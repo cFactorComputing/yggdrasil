@@ -9,6 +9,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class TemplateEngineProperties {
 
     private String templateLocation;
+    private String messagePath;
 
     public String getTemplateLocation() {
         return templateLocation;
@@ -16,5 +17,13 @@ public class TemplateEngineProperties {
 
     public void setTemplateLocation(String templateLocation) {
         this.templateLocation = templateLocation;
+    }
+
+    public String getMessagePath() {
+        return messagePath;
+    }
+
+    public void setMessagePath(String messagePath) {
+        this.messagePath = messagePath;
     }
 }
