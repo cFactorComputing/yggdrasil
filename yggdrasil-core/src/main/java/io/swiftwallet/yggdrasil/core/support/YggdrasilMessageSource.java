@@ -9,7 +9,7 @@ public class YggdrasilMessageSource extends ReloadableResourceBundleMessageSourc
 
     public YggdrasilMessageSource(final String location, final String messagePath) {
         setResourceLoader(new DefaultResourceLoader());
-        final String baseName = "file:" + location + "/i18n/messages/" + messagePath;
+        final String baseName = "file:" + location + "/" + messagePath;
         setBasename(baseName);
         setDefaultEncoding("UTF-8");
         this.initialized = true;
