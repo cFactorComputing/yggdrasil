@@ -53,7 +53,7 @@ public class GatewayController {
         final Map headers = new HashMap(httpHeaders);
         headers.putAll(body.getHeaders());
         exchange.getIn().setHeaders(headers);
-        final String destinationAdapter = body.getDestination().toString();
+        final String destinationAdapter = body.getDestination().toString().toLowerCase();
         exchange.getIn().setHeader(ADAPTER_TYPE, body.getDestination());
         exchange.getIn().setBody(objectMapper.convertValue(body.getPayload(), Class.forName(body.getPayloadType())));
         exchange.getIn().setHeader(RESOURCE_ENDPOINT_TYPE, body.getResourceEndpointType());

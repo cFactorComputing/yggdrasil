@@ -1,6 +1,6 @@
 package io.swiftwallet.yggdrasil.adapters.sms.processors;
 
-import io.swiftwallet.commons.domain.yggdrasil.ResourceEndpointType;
+import in.cfcomputing.commons.yggdrasil.domain.IResourceEndpointType;
 import io.swiftwallet.yggdrasil.core.YggdrasilConstants;
 import io.swiftwallet.yggdrasil.core.adapters.domain.ResourceAdapter;
 import io.swiftwallet.yggdrasil.core.adapters.domain.ResourceEndpoint;
@@ -38,7 +38,7 @@ public abstract class AbstractSmsAdapterPreProcessor extends AbstractTemplatePre
         for (final String key : keySet) {
             query.append("&").append(key).append("=").append(params.get(key));
         }
-        final String resourceEndPoint = message.getHeader(YggdrasilConstants.RESOURCE_ENDPOINT_TYPE, ResourceEndpointType.class).name().toLowerCase();
+        final String resourceEndPoint = message.getHeader(YggdrasilConstants.RESOURCE_ENDPOINT_TYPE, IResourceEndpointType.class).toString().toLowerCase();
         final ResourceEndpoint resourceEndpoint = resourceAdapter.getResourceEndPoints().get(resourceEndPoint);
         final String template = resourceEndpoint.getParams().get("template-name");
 
