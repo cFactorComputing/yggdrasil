@@ -1,7 +1,7 @@
 package io.swiftwallet.yggdrasil.adapters.email.processors;
 
 
-import io.swiftwallet.commons.domain.yggdrasil.ResourceEndpointType;
+import in.cfcomputing.commons.yggdrasil.domain.IResourceEndpointType;
 import io.swiftwallet.yggdrasil.core.YggdrasilConstants;
 import io.swiftwallet.yggdrasil.core.adapters.domain.ResourceAdapter;
 import io.swiftwallet.yggdrasil.core.adapters.domain.ResourceEndpoint;
@@ -19,7 +19,7 @@ public abstract class AbstractEmailPreprocessor extends AbstractTemplatePreproce
 
     @Override
     public void process(Exchange exchange) throws Exception {
-        final String resourceEndPoint = exchange.getIn().getHeader(YggdrasilConstants.RESOURCE_ENDPOINT_TYPE, ResourceEndpointType.class).name().toLowerCase();
+        final String resourceEndPoint = exchange.getIn().getHeader(YggdrasilConstants.RESOURCE_ENDPOINT_TYPE, IResourceEndpointType.class).toString().toLowerCase();
         final ResourceEndpoint resourceEndpoint = resourceAdapter.getResourceEndPoints().get(resourceEndPoint);
         exchange.getIn().setHeader("emailHost", resourceAdapter.getHost());
         exchange.getIn().setHeader("emailPort", String.valueOf(resourceAdapter.getPort()));
