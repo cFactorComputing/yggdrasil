@@ -33,7 +33,7 @@ public class TemplateEngineConfiguration {
 
     @Bean
     public ReloadableResourceBundleMessageSource templateEngineMessageSource() {
-        return new YggdrasilMessageSource(templateEngineProperties.getTemplateLocation());
+        return new YggdrasilMessageSource(templateEngineProperties.getTemplateLocation(), templateEngineProperties.getMessagePath());
     }
 
     @Bean
