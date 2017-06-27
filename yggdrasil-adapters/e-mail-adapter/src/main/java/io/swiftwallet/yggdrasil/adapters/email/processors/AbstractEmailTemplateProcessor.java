@@ -1,6 +1,7 @@
 package io.swiftwallet.yggdrasil.adapters.email.processors;
 
-import io.swiftwallet.commons.domain.yggdrasil.email.EmailRequest;
+
+import in.cfcomputing.commons.yggdrasil.domain.email.EmailRequest;
 import org.apache.camel.Exchange;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
