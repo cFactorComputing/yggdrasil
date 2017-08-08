@@ -10,7 +10,7 @@
 
     <files>
         <file>
-            <source>../yggdrasil-main/target/swiftwallet-yggdrasil.jar</source>
+            <source>../yggdrasil-main/target/yggdrasil.jar</source>
             <outputDirectory>/</outputDirectory>
         </file>
         <!-- Configuration -->

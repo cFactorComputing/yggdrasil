@@ -4,11 +4,11 @@
              xmlns:context="http://www.springframework.org/schema/context"
              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="io.swiftwallet.yggdrasil.adapters.**.processors"/>
-    <context:component-scan base-package="io.swiftwallet.yggdrasil.core.**.processors"/>
-    <beans:bean class="io.swiftwallet.yggdrasil.core.RouteDefinitionsCollector"/>
-    <routeContext id="io.swiftwallet.yggdrasil.core">
-        <route id="io.swiftwallet.yggdrasil.core.gw">
+    <context:component-scan base-package="in.cfcomputing.yggdrasil.adapters.**.processors"/>
+    <context:component-scan base-package="in.cfcomputing.yggdrasil.core.**.processors"/>
+    <beans:bean class="in.cfcomputing.yggdrasil.core.RouteDefinitionsCollector"/>
+    <routeContext id="in.cfcomputing.yggdrasil.core">
+        <route id="in.cfcomputing.yggdrasil.core.gw">
             <from uri="direct://gw"/>
             <choice>
                 <when>
@@ -21,7 +21,7 @@
                 </otherwise>
             </choice>
         </route>
-        <route id="io.swiftwallet.yggdrasil.core.gw.async">
+        <route id="in.cfcomputing.yggdrasil.core.gw.async">
             <from uri="seda:inbound-to-yggdrasil"/>
             <toD uri="direct://${header.adapterType}"/>
         </route>
