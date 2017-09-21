@@ -5,60 +5,12 @@
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
 
-    <routeContext id="io.swiftwallet.yggdrasil.adapters.sms">
-        <route id="io.swiftwallet.yggdrasil.adapters.sms.request">
+    <routeContext id="in.cfcomputing.yggdrasil.adapters.sms">
+        <route id="in.cfcomputing.yggdrasil.adapters.sms.request">
             <from uri="direct://SMS_ADAPTER"/>
             <toD uri="direct://${header.resourceEndpointType}"/>
             <to uri="https4://127.0.0.1/"/>
             <process ref="smsAdapterPostProcessor"/>
-        </route>
-        <route id="io.swiftwallet.yggdrasil.adapters.sms.otp">
-            <from uri="direct://REGISTRATION_OTP"/>
-            <process ref="otpPreProcessor"/>
-        </route>
-        <route id="io.swiftwallet.yggdrasil.adapters.sms.debit.message">
-            <from uri="direct://DEBIT_SMS"/>
-            <process ref="debitSmsPreProcessor"/>
-        </route>
-        <route id="io.swiftwallet.yggdrasil.adapters.sms.credit.message">
-            <from uri="direct://CREDIT_SMS"/>
-            <process ref="creditSmsPreProcessor"/>
-        </route>
-        <route id="io.swiftwallet.yggdrasil.adapters.sms.user.activation">
-            <from uri="direct://USER_ACTIVATION_SMS"/>
-            <process ref="userActivationSmsPreProcessor"/>
-        </route>
-        <route id="io.swiftwallet.yggdrasil.adapters.sms.loyalty.config.activation">
-            <from uri="direct://LOYALTY_CONFIG_ACTIVATION_SMS"/>
-            <process ref="loyaltyConfigActivationSmsPreProcessor"/>
-        </route>
-        <route id="io.swiftwallet.yggdrasil.adapters.sms.user.loyalty.subscription">
-            <from uri="direct://LOYALTY_SUBSCRIPTION_SMS"/>
-            <process ref="userLoyaltySubscriptionSmsPreProcessor"/>
-        </route>
-        <route id="io.swiftwallet.yggdrasil.adapters.sms.user.loyalty.coin">
-            <from uri="direct://COIN_COLLECTION_USER_SMS"/>
-            <process ref="coinEventSmsTemplateProcessor"/>
-        </route>
-        <route id="io.swiftwallet.yggdrasil.adapters.sms.merchant.loyalty.coin">
-            <from uri="direct://COIN_COLLECTION_MERCHANT_SMS"/>
-            <process ref="coinEventSmsTemplateProcessor"/>
-        </route>
-        <route id="io.swiftwallet.yggdrasil.adapters.sms.user.loyalty.coin.redemption">
-            <from uri="direct://COIN_REDEMPTION_USER_SMS"/>
-            <process ref="coinEventSmsTemplateProcessor"/>
-        </route>
-        <route id="io.swiftwallet.yggdrasil.adapters.sms.merchant.loyalty.coin.redemption">
-            <from uri="direct://COIN_REDEMPTION_MERCHANT_SMS"/>
-            <process ref="coinEventSmsTemplateProcessor"/>
-        </route>
-        <route id="io.swiftwallet.yggdrasil.adapters.sms.otp.reset.password">
-            <from uri="direct://RESET_PASSWORD_OTP_SMS"/>
-            <process ref="otpPreProcessor"/>
-        </route>
-        <route id="io.swiftwallet.yggdrasil.adapters.sms.reset.password">
-            <from uri="direct://RESET_PASSWORD_SMS"/>
-            <process ref="resetPasswordSmsPreProcessor"/>
         </route>
     </routeContext>
 </beans:beans>

@@ -2,14 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>io.swiftwallet</groupId>
+        <groupId>in.cfcomputing</groupId>
         <artifactId>yggdrasil</artifactId>
         <version>1.2-SNAPSHOT</version>
     </parent>
-    <groupId>io.swiftwallet.yggdrasil</groupId>
+    <groupId>in.cfcomputing.yggdrasil</groupId>
     <artifactId>yggdrasil-core</artifactId>
-    <name>SwiftWallet::Yggdrasil::Core</name>
-    <url>http://swiftwallet.io</url>
+    <name>cFactor::Yggdrasil::Core</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -44,10 +43,6 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-mail</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>in.cfcomputing.commons</groupId>
-            <artifactId>commons-yggdrasil</artifactId>
         </dependency>
     </dependencies>
 </project>

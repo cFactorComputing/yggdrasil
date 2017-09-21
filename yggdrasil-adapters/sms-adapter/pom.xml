@@ -2,13 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>io.swiftwallet.yggdrasil</groupId>
+        <groupId>in.cfcomputing.yggdrasil</groupId>
         <artifactId>yggdrasil-adapters</artifactId>
         <version>1.2-SNAPSHOT</version>
     </parent>
-    <groupId>io.swiftwallet.yggdrasil.adapters</groupId>
+    <groupId>in.cfcomputing.yggdrasil.adapters</groupId>
     <artifactId>sms-adapter</artifactId>
-    <name>Swiftwallet::Yggdrasil::Adapters::SMS Adapter</name>
+    <name>cFactor::Yggdrasil::Adapters::SMS Adapter</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -29,7 +29,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>io.swiftwallet.yggdrasil</groupId>
+            <groupId>in.cfcomputing.yggdrasil</groupId>
             <artifactId>yggdrasil-core</artifactId>
             <scope>provided</scope>
         </dependency>
@@ -41,10 +41,6 @@
         <dependency>
             <groupId>in.cfcomputing.commons</groupId>
             <artifactId>commons-yggdrasil</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.swiftwallet.commons</groupId>
-            <artifactId>domain</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>

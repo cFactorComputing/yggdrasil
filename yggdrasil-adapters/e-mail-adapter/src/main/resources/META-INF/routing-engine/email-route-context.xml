@@ -21,8 +21,8 @@
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
 
-    <routeContext id="io.swiftwallet.yggdrasil.adapters.email">
-        <route id="io.swiftwallet.yggdrasil.adapters.email.request">
+    <routeContext id="in.cfcomputing.yggdrasil.adapters.email">
+        <route id="in.cfcomputing.yggdrasil.adapters.email.request">
             <from uri="direct://EMAIL_ADAPTER"/>
             <toD uri="direct://${header.resourceEndpointType}"/>
             <process ref="emailUriProcessor"/>
@@ -30,70 +30,6 @@
             <process ref="emailAdapterPostProcessor"/>
         </route>
 
-        <route id="io.swiftwallet.yggdrasil.adapters.email.registration">
-            <from uri="direct://REGISTRATION_CONFIRMATION_EMAIL"/>
-            <process ref="registrationEmailTemplateProcessor"/>
-        </route>
-
-        <route id="io.swiftwallet.yggdrasil.adapters.email.otp">
-            <from uri="direct://REGISTRATION_OTP_EMAIL"/>
-            <process ref="registrationOtpEmailTemplateProcessor"/>
-        </route>
-
-        <route id="io.swiftwallet.yggdrasil.adapters.email.account.debit">
-            <from uri="direct://DEBIT_EMAIL"/>
-            <process ref="accountTransferEmailTemplateProcessor"/>
-        </route>
-
-        <route id="io.swiftwallet.yggdrasil.adapters.email.account.credit">
-            <from uri="direct://CREDIT_EMAIL"/>
-            <process ref="accountTransferEmailTemplateProcessor"/>
-        </route>
-
-        <route id="io.swiftwallet.yggdrasil.adapters.email.user.activation">
-            <from uri="direct://USER_ACTIVATION_EMAIL"/>
-            <process ref="userActivationEmailTemplateProcessor"/>
-        </route>
-
-        <route id="io.swiftwallet.yggdrasil.adapters.email.layalty.config.activation">
-            <from uri="direct://LOYALTY_CONFIG_ACTIVATION_EMAIL"/>
-            <process ref="loyaltyConfigActivationEmailTemplateProcessor"/>
-        </route>
-
-        <route id="io.swiftwallet.yggdrasil.adapters.email.user.loyalty.subscription">
-            <from uri="direct://LOYALTY_SUBSCRIPTION_EMAIL"/>
-            <process ref="userLoyaltySubscriptionEmailTemplateProcessor"/>
-        </route>
-
-        <route id="io.swiftwallet.yggdrasil.adapters.email.user.loyalty.coin.collection">
-            <from uri="direct://COIN_COLLECTION_USER_EMAIL"/>
-            <process ref="coinEventEmailTemplateProcessor"/>
-        </route>
-
-        <route id="io.swiftwallet.yggdrasil.adapters.email.merchant.loyalty.coin.collection">
-            <from uri="direct://COIN_COLLECTION_MERCHANT_EMAIL"/>
-            <process ref="coinEventEmailTemplateProcessor"/>
-        </route>
-
-        <route id="io.swiftwallet.yggdrasil.adapters.email.user.loyalty.coin.redemption">
-            <from uri="direct://COIN_REDEMPTION_USER_EMAIL"/>
-            <process ref="coinEventEmailTemplateProcessor"/>
-        </route>
-
-        <route id="io.swiftwallet.yggdrasil.adapters.email.merchant.loyalty.coin.redemption">
-            <from uri="direct://COIN_REDEMPTION_MERCHANT_EMAIL"/>
-            <process ref="coinEventEmailTemplateProcessor"/>
-        </route>
-
-        <route id="io.swiftwallet.yggdrasil.adapters.email.reset.password.otp">
-            <from uri="direct://RESET_PASSWORD_OTP_EMAIL"/>
-            <process ref="registrationOtpEmailTemplateProcessor"/>
-        </route>
-
-        <route id="io.swiftwallet.yggdrasil.adapters.email.reset.password">
-            <from uri="direct://RESET_PASSWORD_EMAIL"/>
-            <process ref="resetPasswordEmailTemplateProcessor"/>
-        </route>
 
     </routeContext>
 

@@ -18,6 +18,6 @@
             <to uri="mock://test"/>
         </route>
     </routeContext>
-    <beans:bean id="routeDefintionsCollector" class="io.swiftwallet.yggdrasil.core.RouteDefinitionsCollector"/>
-    <beans:bean id="javaDslRoute" class="io.swiftwallet.yggdrasil.core.RouteDefinitionsCollectorTest.JavaDslRoutes"/>
+    <beans:bean id="routeDefintionsCollector" class="in.cfcomputing.yggdrasil.core.RouteDefinitionsCollector"/>
+    <beans:bean id="javaDslRoute" class="in.cfcomputing.yggdrasil.core.RouteDefinitionsCollectorTest.JavaDslRoutes"/>
 </beans:beans>

@@ -2,14 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>io.swiftwallet</groupId>
+        <groupId>in.cfcomputing</groupId>
         <artifactId>yggdrasil</artifactId>
         <version>1.2-SNAPSHOT</version>
     </parent>
-    <groupId>io.swiftwallet.yggdrasil</groupId>
+    <groupId>in.cfcomputing.yggdrasil</groupId>
     <artifactId>yggdrasil-main</artifactId>
-    <name>SwiftWallet::Yggdrasil::Main</name>
-    <url>http://swiftwallet.io</url>
+    <name>cFactor::Yggdrasil::Main</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -19,20 +18,20 @@
             <artifactId>odin-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.swiftwallet.yggdrasil</groupId>
+            <groupId>in.cfcomputing.yggdrasil</groupId>
             <artifactId>yggdrasil-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.swiftwallet.yggdrasil.adapters</groupId>
+            <groupId>in.cfcomputing.yggdrasil.adapters</groupId>
             <artifactId>sms-adapter</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.swiftwallet.yggdrasil.adapters</groupId>
+            <groupId>in.cfcomputing.yggdrasil.adapters</groupId>
             <artifactId>e-mail-adapter</artifactId>
         </dependency>
     </dependencies>
     <build>
-        <finalName>swiftwallet-yggdrasil</finalName>
+        <finalName>yggdrasil</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -45,7 +44,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>io.swiftwallet.yggdrasil.main.YggdrasilMain</mainClass>
+                    <mainClass>in.cfcomputing.yggdrasil.main.YggdrasilMain</mainClass>
                     <addResources>false</addResources>
                     <jvmArguments>
                         -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5008

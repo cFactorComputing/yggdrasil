@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>io.swiftwallet</groupId>
+        <groupId>in.cfcomputing</groupId>
         <artifactId>yggdrasil</artifactId>
         <version>1.2-SNAPSHOT</version>
     </parent>
-    <groupId>io.swiftwallet.yggdrasil</groupId>
+    <groupId>in.cfcomputing.yggdrasil</groupId>
     <artifactId>yggdrasil-adapters</artifactId>
-    <name>Swiftwallet::Yggdrasil::Adapters</name>
-    <url>http://maven.apache.org</url>
+    <name>cFactor::Yggdrasil::Adapters</name>
     <packaging>pom</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <modules>
         <module>sms-adapter</module>
-    <module>e-mail-adapter</module>
-  </modules>
+        <module>e-mail-adapter</module>
+    </modules>
 </project>
