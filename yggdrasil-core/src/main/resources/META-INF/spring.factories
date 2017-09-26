@@ -1,3 +1,6 @@
+in.cfcomputing.odin.core.bootstrap.config.annotations.OdinBootstrapConfiguration=\
+in.cfcomputing.yggdrasil.core.bootstrap.YggdrasilConfiguration
+
 in.cfcomputing.odin.core.bootstrap.config.annotations.OdinConfiguration=\
-io.swiftwallet.yggdrasil.core.config.RoutingEngineConfiguration,\
-io.swiftwallet.yggdrasil.core.config.TemplateEngineConfiguration
+in.cfcomputing.yggdrasil.core.config.RoutingEngineConfiguration,\
+in.cfcomputing.yggdrasil.core.config.TemplateEngineConfiguration

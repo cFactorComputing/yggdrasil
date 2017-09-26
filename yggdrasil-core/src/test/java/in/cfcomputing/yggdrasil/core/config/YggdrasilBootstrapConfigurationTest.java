@@ -1,6 +1,7 @@
 package in.cfcomputing.yggdrasil.core.config;
 
 import in.cfcomputing.odin.core.bootstrap.cd.RuntimeConfiguration;
+import in.cfcomputing.yggdrasil.core.bootstrap.YggdrasilConfiguration;
 import org.apache.camel.CamelContext;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,8 +20,8 @@ import static org.junit.Assert.assertNotNull;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = {RoutingEngineConfigurationTest.TestConfiguration.class, RoutingEngineConfiguration.class})
-public class RoutingEngineConfigurationTest {
+@ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = {YggdrasilBootstrapConfigurationTest.TestConfiguration.class, YggdrasilConfiguration.class})
+public class YggdrasilBootstrapConfigurationTest {
 
     @Autowired
     private ApplicationContext applicationContext;
