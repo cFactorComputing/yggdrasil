@@ -2,6 +2,7 @@ package in.cfcomputing.yggdrasil.core.config;
 
 import in.cfcomputing.yggdrasil.core.adapters.GatewayController;
 import in.cfcomputing.yggdrasil.core.adapters.configuration.AdapterConfiguration;
+import in.cfcomputing.yggdrasil.core.spring.spi.YggdrasilPropertyPlaceholderConfigurer;
 import org.apache.camel.CamelContext;
 import org.apache.camel.impl.CompositeRegistry;
 import org.apache.camel.impl.PropertyPlaceholderDelegateRegistry;
@@ -11,6 +12,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.core.env.Environment;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
