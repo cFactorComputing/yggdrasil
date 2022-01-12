@@ -18,7 +18,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <yggdrasil-odin.version>1.3-SNAPSHOT</yggdrasil-odin.version>
-        <yggdrasil-camel.version>2.21.2</yggdrasil-camel.version>
+        <yggdrasil-camel.version>3.11.4</yggdrasil-camel.version>
         <yggdrasil-thyme-leaf.version>3.0.0.RELEASE</yggdrasil-thyme-leaf.version>
         <yggdrasil-cfactor-commons.version>1.0-SNAPSHOT</yggdrasil-cfactor-commons.version>
         <yggdrasil-apache-commomns.version>1.2</yggdrasil-apache-commomns.version>
@@ -58,7 +58,7 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-web</artifactId>
-                <version>4.3.5.RELEASE</version>
+                <version>5.0.0.RELEASE</version>
             </dependency>
             <dependency>
                 <groupId>in.cfcomputing.yggdrasil</groupId>
